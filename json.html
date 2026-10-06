@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NEXUS X | JSON</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        <div class="logo-icon">N</div>
+        NEXUS X
+    </div>
+
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="producto.html">Producto</a>
+        <a href="javascript.html">JavaScript</a>
+        <a href="jquery.html">jQuery</a>
+        <a href="json.html">JSON</a>
+        <a href="hosting.html">Hosting</a>
+        <a href="dominios.html">Dominios</a>
+        <a href="evaluacion.html">Evaluación</a>
+    </nav>
+
+</header>
+
+<section class="page">
+
+    <div class="section-title">
+
+        <span class="tag">TECNOLOGÍA WEB</span>
+
+        <h1>J<span>SON</span></h1>
+
+        <p>
+            Formato utilizado para almacenar e intercambiar datos.
+        </p>
+
+    </div>
+
+    <div class="tech-box">
+
+        <h2>¿Qué es JSON?</h2>
+
+        <p>
+            JSON significa JavaScript Object Notation.
+            Es un formato de texto utilizado para almacenar
+            y transmitir información de manera organizada.
+        </p>
+
+    </div>
+
+</section>
+
+<section>
+
+    <div class="section-title">
+
+        <h2>Datos de <span>NEXUS X</span></h2>
+
+        <p>
+            La información siguiente se carga desde un archivo JSON.
+        </p>
+
+    </div>
+
+    <div id="datos-json" class="cards">
+
+        <div class="card">
+
+            <h3>Cargando...</h3>
+
+            <p>
+                Estamos obteniendo los datos.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+    © 2026 <span>NEXUS X</span>
+</footer>
+
+<script>
+
+fetch("datos.json")
+
+.then(respuesta => respuesta.json())
+
+.then(datos => {
+
+    const contenedor = document.getElementById("datos-json");
+
+    contenedor.innerHTML = `
+
+        <div class="card">
+
+            <div class="icon">📱</div>
+
+            <h3>Producto</h3>
+
+            <p>${datos.producto}</p>
+
+        </div>
+
+        <div class="card">
+
+            <div class="icon">🎓</div>
+
+            <h3>Público</h3>
+
+            <p>${datos.publico}</p>
+
+        </div>
+
+        <div class="card">
+
+            <div class="icon">🚀</div>
+
+            <h3>Propuesta</h3>
+
+            <p>${datos.propuesta}</p>
+
+        </div>
+
+    `;
+
+})
+
+.catch(error => {
+
+    document.getElementById("datos-json").innerHTML =
+
+    "<div class='card'><h3>Error</h3><p>No se pudieron cargar los datos.</p></div>";
+
+});
+
+</script>
+
+</body>
+</html>

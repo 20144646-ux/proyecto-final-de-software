@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NEXUS X | jQuery</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        <div class="logo-icon">N</div>
+        NEXUS X
+    </div>
+
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="producto.html">Producto</a>
+        <a href="javascript.html">JavaScript</a>
+        <a href="jquery.html">jQuery</a>
+        <a href="json.html">JSON</a>
+        <a href="hosting.html">Hosting</a>
+        <a href="dominios.html">Dominios</a>
+        <a href="evaluacion.html">Evaluación</a>
+    </nav>
+
+</header>
+
+<section class="page">
+
+    <div class="section-title">
+
+        <span class="tag">TECNOLOGÍA WEB</span>
+
+        <h1>j<span>Query</span></h1>
+
+        <p>
+            Una biblioteca de JavaScript que facilita
+            la creación de interacciones.
+        </p>
+
+    </div>
+
+    <div class="tech-box">
+
+        <h2>¿Qué es jQuery?</h2>
+
+        <p>
+            jQuery es una biblioteca de JavaScript diseñada
+            para simplificar tareas como modificar elementos
+            HTML, crear animaciones y responder a eventos.
+        </p>
+
+    </div>
+
+</section>
+
+<section>
+
+    <div class="section-title">
+
+        <h2>Ejemplo con <span>jQuery</span></h2>
+
+    </div>
+
+    <div class="interactive">
+
+        <div id="caja-jquery" class="jquery-box">
+
+            <h2>¡Hola desde NEXUS X!</h2>
+
+            <p>
+                Esta caja puede ocultarse y aparecer
+                utilizando jQuery.
+            </p>
+
+        </div>
+
+        <br>
+
+        <button id="ocultar" class="btn">
+            OCULTAR
+        </button>
+
+        <button id="mostrar" class="btn">
+            MOSTRAR
+        </button>
+
+        <button id="animar" class="btn">
+            ANIMAR
+        </button>
+
+    </div>
+
+</section>
+
+<footer>
+    © 2026 <span>NEXUS X</span>
+</footer>
+
+<script>
+
+$(document).ready(function(){
+
+    $("#ocultar").click(function(){
+
+        $("#caja-jquery").slideUp();
+
+    });
+
+    $("#mostrar").click(function(){
+
+        $("#caja-jquery").slideDown();
+
+    });
+
+    $("#animar").click(function(){
+
+        $("#caja-jquery").animate({
+
+            opacity: 0.5,
+            marginLeft: "50px"
+
+        }, 800);
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>
