@@ -1,144 +1,82 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>NEXUS X | jQuery</title>
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-
 </head>
 
 <body>
 
-<header>
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html"><span class="logo">NX</span> NEXUS X</a>
 
-    <div class="logo">
-        <div class="logo-icon">N</div>
-        NEXUS X
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav ms-auto align-items-lg-center">
+                <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link" href="producto.html">Producto</a></li>
+                <li class="nav-item"><a class="nav-link" href="javascript.html">JavaScript</a></li>
+                <li class="nav-item"><a class="nav-link active" href="jquery.html">jQuery</a></li>
+                <li class="nav-item"><a class="nav-link" href="json.html">JSON</a></li>
+                <li class="nav-item"><a class="nav-link" href="hosting.html">Hosting</a></li>
+                <li class="nav-item"><a class="nav-link" href="dominios.html">Dominios</a></li>
+                <li class="nav-item"><a class="nav-link" href="evaluacion.html">Evaluación</a></li>
+                <li class="nav-item ms-lg-2"><button id="modoBtn" class="btn btn-outline-light btn-sm">🌙 Oscuro</button></li>
+            </ul>
+        </div>
     </div>
+</nav>
 
-    <nav>
-        <a href="index.html">Inicio</a>
-        <a href="producto.html">Producto</a>
-        <a href="javascript.html">JavaScript</a>
-        <a href="jquery.html">jQuery</a>
-        <a href="json.html">JSON</a>
-        <a href="hosting.html">Hosting</a>
-        <a href="dominios.html">Dominios</a>
-        <a href="evaluacion.html">Evaluación</a>
-    </nav>
-
-</header>
-
-<section class="page">
-
-    <div class="section-title">
-
-        <span class="tag">TECNOLOGÍA WEB</span>
-
-        <h1>j<span>Query</span></h1>
-
-        <p>
-            Una biblioteca de JavaScript que facilita
-            la creación de interacciones.
-        </p>
-
+<section class="page-header">
+    <div class="container">
+        <span class="badge text-bg-primary">TECNOLOGÍA 02</span>
+        <h1>jQuery</h1>
+        <p>Una biblioteca de JavaScript que facilita el trabajo con páginas web.</p>
     </div>
-
-    <div class="tech-box">
-
-        <h2>¿Qué es jQuery?</h2>
-
-        <p>
-            jQuery es una biblioteca de JavaScript diseñada
-            para simplificar tareas como modificar elementos
-            HTML, crear animaciones y responder a eventos.
-        </p>
-
-    </div>
-
 </section>
 
-<section>
+<section class="section">
+    <div class="container">
 
-    <div class="section-title">
-
-        <h2>Ejemplo con <span>jQuery</span></h2>
-
-    </div>
-
-    <div class="interactive">
-
-        <div id="caja-jquery" class="jquery-box">
-
-            <h2>¡Hola desde NEXUS X!</h2>
+        <div class="content-box reveal">
+            <h2>¿Qué es jQuery?</h2>
 
             <p>
-                Esta caja puede ocultarse y aparecer
-                utilizando jQuery.
+                jQuery es una biblioteca de JavaScript que permite escribir
+                algunas acciones de manera más sencilla. Se utiliza para
+                manipular elementos HTML, realizar efectos y responder a eventos.
             </p>
 
+            <div id="caja-jquery" class="demo-box mt-4">
+                <h3>Zona de demostración</h3>
+                <p>Esta caja será controlada utilizando jQuery.</p>
+            </div>
+
+            <div class="d-flex gap-2 flex-wrap mt-4">
+                <button id="ocultar" class="btn btn-outline-primary">Ocultar</button>
+                <button id="mostrar" class="btn btn-primary">Mostrar</button>
+                <button id="animar" class="btn btn-dark">Animar</button>
+            </div>
         </div>
 
-        <br>
-
-        <button id="ocultar" class="btn">
-            OCULTAR
-        </button>
-
-        <button id="mostrar" class="btn">
-            MOSTRAR
-        </button>
-
-        <button id="animar" class="btn">
-            ANIMAR
-        </button>
-
     </div>
-
 </section>
 
 <footer>
-    © 2026 <span>NEXUS X</span>
+    <p>© 2026 NEXUS X | jQuery</p>
 </footer>
 
-<script>
-
-$(document).ready(function(){
-
-    $("#ocultar").click(function(){
-
-        $("#caja-jquery").slideUp();
-
-    });
-
-    $("#mostrar").click(function(){
-
-        $("#caja-jquery").slideDown();
-
-    });
-
-    $("#animar").click(function(){
-
-        $("#caja-jquery").animate({
-
-            opacity: 0.5,
-            marginLeft: "50px"
-
-        }, 800);
-
-    });
-
-});
-
-</script>
-
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

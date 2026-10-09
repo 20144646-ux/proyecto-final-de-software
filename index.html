@@ -1,143 +1,93 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEXUS X | Inicio</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+<!-- ====== FORMULARIO DE CONTACTO ====== -->
+<section class="section">
+    <div class="container">
+        <div class="section-title reveal">
+            <span>CONTÁCTANOS</span>
+            <h2>Envíanos tu información</h2>
+            <p>Escribe tu nombre y correo, y llegará a nuestro canal de Discord.</p>
+        </div>
 
-<body>
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-lg-4">
+                <form id="formContacto" class="p-4 border rounded-3 bg-dark text-light">
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label">👤 Tu Nombre</label>
+                        <input type="text" class="form-control" id="nombre" placeholder="Escribe tu nombre" required>
+                    </div>
 
-<header>
-    <div class="logo">
-        <div class="logo-icon">N</div>
-        NEXUS X
-    </div>
+                    <div class="mb-3">
+                        <label for="correo" class="form-label">📧 Tu Correo</label>
+                        <input type="email" class="form-control" id="correo" placeholder="tu@correo.com" required>
+                    </div>
 
-    <nav>
-        <a href="index.html">Inicio</a>
-        <a href="producto.html">Producto</a>
-        <a href="javascript.html">JavaScript</a>
-        <a href="jquery.html">jQuery</a>
-        <a href="json.html">JSON</a>
-        <a href="hosting.html">Hosting</a>
-        <a href="dominios.html">Dominios</a>
-        <a href="evaluacion.html">Evaluación</a>
-    </nav>
-</header>
+                    <div class="mb-3">
+                        <label for="mensaje" class="form-label">💬 Mensaje</label>
+                        <textarea class="form-control" id="mensaje" rows="4" placeholder="Escribe tu mensaje aquí..." required></textarea>
+                    </div>
 
-<section class="hero">
+                    <button type="submit" class="btn btn-primary w-100">
+                        <i class="bi bi-send"></i> Enviar a Discord
+                    </button>
+                </form>
 
-    <div class="hero-text">
-
-        <span class="tag">TECNOLOGÍA • EDUCACIÓN • INNOVACIÓN</span>
-
-        <h1>
-            ESTUDIA.<br>
-            ORGANIZA.<br>
-            <span>CONÉCTATE.</span>
-        </h1>
-
-        <p>
-            NEXUS X es una plataforma digital creada para estudiantes
-            que desean aprovechar la tecnología para estudiar,
-            organizar sus tareas y mejorar su aprendizaje.
-        </p>
-
-        <a href="producto.html" class="btn">
-            CONOCER PRODUCTO
-        </a>
-
-    </div>
-
-    <div class="hero-logo">
-        <div>
-            <strong>N</strong>
-            <small>NEXUS X</small>
+                <!-- Caja de mensaje de éxito/error -->
+                <div id="resultado" class="mt-3 alert d-none text-center"></div>
+            </div>
         </div>
     </div>
-
 </section>
 
-<section>
+<script>
+// https://discord.com/api/webhooks/1558109119259480226/wbZwk8zXHB99Vts2l6KYPtoo21O7PFKI_dRQUpz5aFYoDN_pxkrTRtaXl4LfyyIipesA
+const WEBHOOK_URL = "https://discord.com/api/webhooks/1558109119259480226/wbZwk8zXHB99Vts2l6KYPtoo21O7PFKI_dRQUpz5aFYoDN_pxkrTRtaXl4LfyyIipesA";
 
-    <div class="section-title">
-        <h2>¿Qué es <span>NEXUS X?</span></h2>
+const form = document.getElementById('formContacto');
+const resultado = document.getElementById('resultado');
 
-        <p>
-            Una propuesta tecnológica pensada para estudiantes.
-        </p>
-    </div>
+form.addEventListener('submit', async function(e) {
+    e.preventDefault();
 
-    <div class="cards">
+    // Leer los datos del formulario
+    const nombre = document.getElementById('nombre').value;
+    const correo = document.getElementById('correo').value;
+    const mensaje = document.getElementById('mensaje').value;
 
-        <div class="card">
-            <div class="icon">💻</div>
-            <h3>Tecnología</h3>
-            <p>
-                Utilizamos tecnologías web modernas para crear
-                una experiencia interactiva.
-            </p>
-        </div>
+    // Mostrar "enviando..."
+    resultado.classList.remove('d-none');
+    resultado.className = "mt-3 alert alert-info text-center";
+    resultado.textContent = "📤 Enviando tu mensaje...";
 
-        <div class="card">
-            <div class="icon">📚</div>
-            <h3>Educación</h3>
-            <p>
-                NEXUS X busca facilitar el aprendizaje y
-                la organización académica.
-            </p>
-        </div>
+    try {
+        // Enviar a Discord
+        const respuesta = await fetch(WEBHOOK_URL, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                embeds: [{
+                    title: "📩 Nuevo mensaje recibido",
+                    color: 39423, // Color verde
+                    fields: [
+                        { name: "👤 Nombre", value: nombre, inline: false },
+                        { name: "📧 Correo", value: correo, inline: false },
+                        { name: "💬 Mensaje", value: mensaje, inline: false }
+                    ],
+                    timestamp: new Date().toISOString()
+                }]
+            })
+        });
 
-        <div class="card">
-            <div class="icon">🚀</div>
-            <h3>Innovación</h3>
-            <p>
-                Combinamos creatividad y programación para
-                crear una plataforma moderna.
-            </p>
-        </div>
-
-    </div>
-
-</section>
-
-<section>
-
-    <div class="section-title">
-        <h2>Identidad <span>Visual</span></h2>
-    </div>
-
-    <div class="colors">
-
-        <div class="color">
-            <div class="color-box azul-oscuro"></div>
-            <p>#0F172A</p>
-        </div>
-
-        <div class="color">
-            <div class="color-box azul"></div>
-            <p>#2563EB</p>
-        </div>
-
-        <div class="color">
-            <div class="color-box celeste"></div>
-            <p>#38BDF8</p>
-        </div>
-
-        <div class="color">
-            <div class="color-box blanco"></div>
-            <p>#FFFFFF</p>
-        </div>
-
-    </div>
-
-</section>
-
-<footer>
-    © 2026 <span>NEXUS X</span> | Proyecto de Desarrollo Web
-</footer>
-
-</body>
-</html>
+        if (respuesta.ok) {
+            // ✅ Éxito
+            resultado.className = "mt-3 alert alert-success text-center";
+            resultado.innerHTML = `✅ ¡Mensaje enviado con éxito!<br>Gracias, <strong>${nombre}</strong>. Te responderemos pronto.`;
+            form.reset(); // Limpiar formulario
+        } else {
+            throw new Error("Error en el servidor");
+        }
+    } catch (error) {
+        // ❌ Error
+        resultado.className = "mt-3 alert alert-danger text-center";
+        resultado.textContent = "❌ No se pudo enviar. Verifica el enlace de Discord.";
+    }
+});
+</script>

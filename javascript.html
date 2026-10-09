@@ -3,130 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>NEXUS X | JavaScript</title>
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<header>
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html"><span class="logo">NX</span> NEXUS X</a>
 
-    <div class="logo">
-        <div class="logo-icon">N</div>
-        NEXUS X
-    </div>
-
-    <nav>
-        <a href="index.html">Inicio</a>
-        <a href="producto.html">Producto</a>
-        <a href="javascript.html">JavaScript</a>
-        <a href="jquery.html">jQuery</a>
-        <a href="json.html">JSON</a>
-        <a href="hosting.html">Hosting</a>
-        <a href="dominios.html">Dominios</a>
-        <a href="evaluacion.html">Evaluación</a>
-    </nav>
-
-</header>
-
-<section class="page">
-
-    <div class="section-title">
-
-        <span class="tag">TECNOLOGÍA WEB</span>
-
-        <h1>Java<span>Script</span></h1>
-
-        <p>
-            El lenguaje que permite agregar interactividad
-            a una página web.
-        </p>
-
-    </div>
-
-    <div class="tech-box">
-
-        <h2>¿Qué es JavaScript?</h2>
-
-        <p>
-            JavaScript es un lenguaje de programación utilizado
-            principalmente para crear páginas web interactivas.
-            Permite responder a las acciones del usuario,
-            modificar contenido y realizar diferentes funciones.
-        </p>
-
-    </div>
-
-    <div class="cards">
-
-        <div class="card">
-
-            <h3>⚡ Interactividad</h3>
-
-            <p>
-                Permite que una página responda a las acciones
-                realizadas por el usuario.
-            </p>
-
-        </div>
-
-        <div class="card">
-
-            <h3>🎨 Dinamismo</h3>
-
-            <p>
-                Puede cambiar elementos de una página sin
-                tener que recargarla completamente.
-            </p>
-
-        </div>
-
-        <div class="card">
-
-            <h3>🧠 Programación</h3>
-
-            <p>
-                Permite crear variables, funciones, condiciones
-                y diferentes procesos.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-<section>
-
-    <div class="section-title">
-
-        <h2>Ejemplo <span>interactivo</span></h2>
-
-        <p>Este botón funciona mediante JavaScript.</p>
-
-    </div>
-
-    <div class="interactive">
-
-        <h2 id="mensaje">
-            ¡Presiona el botón!
-        </h2>
-
-        <button class="btn" onclick="cambiarMensaje()">
-            EJECUTAR JAVASCRIPT
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+            <span class="navbar-toggler-icon"></span>
         </button>
 
+        <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav ms-auto align-items-lg-center">
+                <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link" href="producto.html">Producto</a></li>
+                <li class="nav-item"><a class="nav-link active" href="javascript.html">JavaScript</a></li>
+                <li class="nav-item"><a class="nav-link" href="jquery.html">jQuery</a></li>
+                <li class="nav-item"><a class="nav-link" href="json.html">JSON</a></li>
+                <li class="nav-item"><a class="nav-link" href="hosting.html">Hosting</a></li>
+                <li class="nav-item"><a class="nav-link" href="dominios.html">Dominios</a></li>
+                <li class="nav-item"><a class="nav-link" href="evaluacion.html">Evaluación</a></li>
+                <li class="nav-item ms-lg-2"><button id="modoBtn" class="btn btn-outline-light btn-sm">🌙 Oscuro</button></li>
+            </ul>
+        </div>
     </div>
+</nav>
 
+<section class="page-header">
+    <div class="container">
+        <span class="badge text-bg-primary">TECNOLOGÍA 01</span>
+        <h1>JavaScript</h1>
+        <p>El lenguaje que permite agregar interacción a una página web.</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+
+        <div class="content-box reveal">
+            <h2><i class="bi bi-filetype-js"></i> ¿Qué es JavaScript?</h2>
+            <p>
+                JavaScript es un lenguaje de programación utilizado principalmente
+                para hacer que las páginas web sean dinámicas e interactivas.
+            </p>
+
+            <hr>
+
+            <h4>Algunos usos</h4>
+            <ul>
+                <li>Crear botones interactivos.</li>
+                <li>Modificar contenido de una página.</li>
+                <li>Validar formularios.</li>
+                <li>Crear animaciones.</li>
+                <li>Trabajar con datos.</li>
+            </ul>
+
+            <button class="btn btn-primary" onclick="cambiarMensaje()">
+                Probar JavaScript
+            </button>
+
+            <p id="mensaje" class="mt-3 fw-bold"></p>
+        </div>
+
+    </div>
 </section>
 
 <footer>
-    © 2026 <span>NEXUS X</span>
+    <p>© 2026 NEXUS X | JavaScript</p>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="script.js"></script>
-
 </body>
 </html>

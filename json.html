@@ -1,153 +1,120 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>NEXUS X | JSON</title>
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
 
-<header>
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html"><span class="logo">NX</span> NEXUS X</a>
 
-    <div class="logo">
-        <div class="logo-icon">N</div>
-        NEXUS X
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav ms-auto align-items-lg-center">
+                <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link" href="producto.html">Producto</a></li>
+                <li class="nav-item"><a class="nav-link" href="javascript.html">JavaScript</a></li>
+                <li class="nav-item"><a class="nav-link" href="jquery.html">jQuery</a></li>
+                <li class="nav-item"><a class="nav-link active" href="json.html">JSON</a></li>
+                <li class="nav-item"><a class="nav-link" href="hosting.html">Hosting</a></li>
+                <li class="nav-item"><a class="nav-link" href="dominios.html">Dominios</a></li>
+                <li class="nav-item"><a class="nav-link" href="evaluacion.html">Evaluación</a></li>
+                <li class="nav-item ms-lg-2"><button id="modoBtn" class="btn btn-outline-light btn-sm">🌙 Oscuro</button></li>
+            </ul>
+        </div>
     </div>
+</nav>
 
-    <nav>
-        <a href="index.html">Inicio</a>
-        <a href="producto.html">Producto</a>
-        <a href="javascript.html">JavaScript</a>
-        <a href="jquery.html">jQuery</a>
-        <a href="json.html">JSON</a>
-        <a href="hosting.html">Hosting</a>
-        <a href="dominios.html">Dominios</a>
-        <a href="evaluacion.html">Evaluación</a>
-    </nav>
-
-</header>
-
-<section class="page">
-
-    <div class="section-title">
-
-        <span class="tag">TECNOLOGÍA WEB</span>
-
-        <h1>J<span>SON</span></h1>
-
-        <p>
-            Formato utilizado para almacenar e intercambiar datos.
-        </p>
-
+<section class="page-header">
+    <div class="container">
+        <span class="badge text-bg-primary">TECNOLOGÍA 03</span>
+        <h1>JSON</h1>
+        <p>Una forma sencilla de organizar e intercambiar información.</p>
     </div>
-
-    <div class="tech-box">
-
-        <h2>¿Qué es JSON?</h2>
-
-        <p>
-            JSON significa JavaScript Object Notation.
-            Es un formato de texto utilizado para almacenar
-            y transmitir información de manera organizada.
-        </p>
-
-    </div>
-
 </section>
 
-<section>
+<section class="section">
+    <div class="container">
 
-    <div class="section-title">
-
-        <h2>Datos de <span>NEXUS X</span></h2>
-
-        <p>
-            La información siguiente se carga desde un archivo JSON.
-        </p>
-
-    </div>
-
-    <div id="datos-json" class="cards">
-
-        <div class="card">
-
-            <h3>Cargando...</h3>
-
+        <div class="content-box reveal mb-4">
+            <h2>¿Qué es JSON?</h2>
             <p>
-                Estamos obteniendo los datos.
+                JSON significa JavaScript Object Notation. Es un formato
+                utilizado para guardar y transmitir datos de una manera
+                organizada y fácil de leer.
             </p>
+        </div>
 
+        <div id="datos-json" class="row g-4">
+            <div class="col-12">
+                <div class="content-box text-center">
+                    <div class="spinner-border text-primary"></div>
+                    <p class="mt-2">Cargando información...</p>
+                </div>
+            </div>
         </div>
 
     </div>
-
 </section>
 
 <footer>
-    © 2026 <span>NEXUS X</span>
+    <p>© 2026 NEXUS X | JSON</p>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
+
 <script>
-
 fetch("datos.json")
-
 .then(respuesta => respuesta.json())
-
 .then(datos => {
 
-    const contenedor = document.getElementById("datos-json");
-
-    contenedor.innerHTML = `
-
-        <div class="card">
-
-            <div class="icon">📱</div>
-
-            <h3>Producto</h3>
-
-            <p>${datos.producto}</p>
-
+    document.getElementById("datos-json").innerHTML = `
+        <div class="col-md-4 reveal">
+            <div class="info-card">
+                <i class="bi bi-box"></i>
+                <h3>Producto</h3>
+                <p>${datos.producto}</p>
+            </div>
         </div>
 
-        <div class="card">
-
-            <div class="icon">🎓</div>
-
-            <h3>Público</h3>
-
-            <p>${datos.publico}</p>
-
+        <div class="col-md-4 reveal">
+            <div class="info-card">
+                <i class="bi bi-people"></i>
+                <h3>Público</h3>
+                <p>${datos.publico}</p>
+            </div>
         </div>
 
-        <div class="card">
-
-            <div class="icon">🚀</div>
-
-            <h3>Propuesta</h3>
-
-            <p>${datos.propuesta}</p>
-
+        <div class="col-md-4 reveal">
+            <div class="info-card">
+                <i class="bi bi-rocket"></i>
+                <h3>Propuesta</h3>
+                <p>${datos.propuesta}</p>
+            </div>
         </div>
-
     `;
-
 })
-
 .catch(error => {
-
-    document.getElementById("datos-json").innerHTML =
-
-    "<div class='card'><h3>Error</h3><p>No se pudieron cargar los datos.</p></div>";
-
+    document.getElementById("datos-json").innerHTML = `
+        <div class="col-12">
+            <div class="alert alert-danger">
+                No se pudieron cargar los datos JSON.
+            </div>
+        </div>
+    `;
 });
-
 </script>
 
 </body>

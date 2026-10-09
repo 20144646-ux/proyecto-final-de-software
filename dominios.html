@@ -1,144 +1,101 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>NEXUS X | Dominios</title>
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
 
-<header>
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html"><span class="logo">NX</span> NEXUS X</a>
 
-    <div class="logo">
-        <div class="logo-icon">N</div>
-        NEXUS X
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav ms-auto align-items-lg-center">
+                <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link" href="producto.html">Producto</a></li>
+                <li class="nav-item"><a class="nav-link" href="javascript.html">JavaScript</a></li>
+                <li class="nav-item"><a class="nav-link" href="jquery.html">jQuery</a></li>
+                <li class="nav-item"><a class="nav-link" href="json.html">JSON</a></li>
+                <li class="nav-item"><a class="nav-link" href="hosting.html">Hosting</a></li>
+                <li class="nav-item"><a class="nav-link active" href="dominios.html">Dominios</a></li>
+                <li class="nav-item"><a class="nav-link" href="evaluacion.html">Evaluación</a></li>
+                <li class="nav-item ms-lg-2"><button id="modoBtn" class="btn btn-outline-light btn-sm">🌙 Oscuro</button></li>
+            </ul>
+        </div>
     </div>
+</nav>
 
-    <nav>
-        <a href="index.html">Inicio</a>
-        <a href="producto.html">Producto</a>
-        <a href="javascript.html">JavaScript</a>
-        <a href="jquery.html">jQuery</a>
-        <a href="json.html">JSON</a>
-        <a href="hosting.html">Hosting</a>
-        <a href="dominios.html">Dominios</a>
-        <a href="evaluacion.html">Evaluación</a>
-    </nav>
-
-</header>
-
-<section class="page">
-
-    <div class="section-title">
-
-        <span class="tag">TECNOLOGÍA WEB</span>
-
-        <h1>Nom<span>bres de Dominio</span></h1>
-
-        <p>
-            La dirección que identifica un sitio web en Internet.
-        </p>
-
+<section class="page-header">
+    <div class="container">
+        <span class="badge text-bg-primary">TECNOLOGÍA 05</span>
+        <h1>Dominios</h1>
+        <p>El nombre que las personas utilizan para entrar a un sitio web.</p>
     </div>
-
-    <div class="tech-box">
-
-        <h2>¿Qué es un dominio?</h2>
-
-        <p>
-            Un dominio es el nombre único que utilizan los usuarios
-            para encontrar un sitio web en Internet. Por ejemplo:
-            google.com o wikipedia.org.
-        </p>
-
-    </div>
-
 </section>
 
-<section>
+<section class="section">
+    <div class="container">
 
-    <div class="section-title">
-
-        <h2>Partes de un <span>dominio</span></h2>
-
-    </div>
-
-    <div class="domain">
-
-        <span>www.</span>
-        <strong>nexusx</strong>
-        <span>.com</span>
-
-    </div>
-
-    <div class="cards">
-
-        <div class="card">
-
-            <h3>www</h3>
+        <div class="content-box reveal">
+            <h2><i class="bi bi-globe2"></i> ¿Qué es un dominio?</h2>
 
             <p>
-                Es un subdominio tradicional utilizado para
-                acceder a sitios web.
+                Un dominio es la dirección o nombre que identifica un sitio web
+                en Internet. En lugar de escribir una dirección numérica complicada,
+                podemos utilizar un nombre fácil de recordar.
             </p>
 
-        </div>
+            <h4 class="mt-4">Ejemplo</h4>
 
-        <div class="card">
+            <div class="domain-example">
+                www.nexusx.com
+            </div>
 
-            <h3>NEXUS X</h3>
+            <div class="row g-3 mt-3">
 
-            <p>
-                Es el nombre elegido para identificar
-                nuestra marca.
-            </p>
+                <div class="col-md-4">
+                    <div class="mini-card">
+                        <strong>www</strong>
+                        <p>Indica el servicio web.</p>
+                    </div>
+                </div>
 
-        </div>
+                <div class="col-md-4">
+                    <div class="mini-card">
+                        <strong>nexusx</strong>
+                        <p>Es el nombre elegido.</p>
+                    </div>
+                </div>
 
-        <div class="card">
+                <div class="col-md-4">
+                    <div class="mini-card">
+                        <strong>.com</strong>
+                        <p>Es la extensión del dominio.</p>
+                    </div>
+                </div>
 
-            <h3>.com</h3>
-
-            <p>
-                Es una extensión de dominio utilizada
-                por diferentes tipos de sitios.
-            </p>
-
+            </div>
         </div>
 
     </div>
-
-</section>
-
-<section>
-
-    <div class="section-title">
-
-        <h2>Ejemplos de <span>extensiones</span></h2>
-
-    </div>
-
-    <div class="features">
-
-        <div>  — Comercial</div>
-        <div>  — Organizaciones</div>
-        <div>  — Educación</div>
-        <div>  — El Salvador</div>
-
-    </div>
-
 </section>
 
 <footer>
-    © 2026 <span>NEXUS X</span>
+    <p>© 2026 NEXUS X | Dominios</p>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
