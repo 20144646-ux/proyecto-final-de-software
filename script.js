@@ -1,148 +1,51 @@
 
-function configurarModo() {
-    const boton = document.getElementById("modoBtn");
-
-    function aplicarModo(modo) {
-        document.body.classList.toggle(
-            "modo-oscuro",
-            modo === "oscuro"
-        );
-
-        if (boton) {
-            boton.textContent =
-                modo === "oscuro" ? " Claro" : " Oscuro";
-        }
-    }
-
-    let modoGuardado = "claro";
-
-    try {
-        modoGuardado = localStorage.getItem("modo") || "claro";
-    } catch (error) {
-        console.warn("No se pudo guardar la preferencia del tema.");
-    }
-
-    aplicarModo(modoGuardado);
-
-    if (boton && !boton.dataset.modoConfigurado) {
-        boton.dataset.modoConfigurado = "si";
-
-        boton.addEventListener("click", function () {
-            const nuevoModo =
-                document.body.classList.contains("modo-oscuro")
-                    ? "claro"
-                    : "oscuro";
-
-            aplicarModo(nuevoModo);
-
-            try {
-                localStorage.setItem("modo", nuevoModo);
-            } catch (error) {
-                console.warn("No se pudo guardar el tema.");
-            }
-        });
-    }
-}
-
-if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", configurarModo);
-} else {
-    configurarModo();
-}
-
-const formularioContacto = document.getElementById("formContacto");
-
-if (formularioContacto) {
-    formularioContacto.addEventListener("submit", async function (e) {
-        e.preventDefault();
-
-        const boton = document.getElementById("enviarContacto");
-        const estado = document.getElementById("estadoFormulario");
-
-        boton.disabled = true;
-        estado.textContent = "Enviando mensaje...";
-
-        try {
-            const respuesta = await fetch("/api/contacto", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    nombre: document.getElementById("nombre").value,
-                    correo: document.getElementById("correo").value,
-                    motivo: document.getElementById("motivo").value,
-                    mensaje: document.getElementById("mensajeContacto").value
-                })
-            });
-
-            const resultado = await respuesta.json();
-
-            if (!respuesta.ok) {
-                throw new Error(resultado.mensaje || "No se pudo enviar.");
-            }
-
-            estado.textContent = resultado.mensaje;
-            formularioContacto.reset();
-        } catch (error) {
-            estado.textContent = error.message ||
-                "No se pudo conectar con el servidor.";
-        } finally {
-            boton.disabled = false;
-        }
-    });
-}
-
 document.addEventListener("DOMContentLoaded", function () {
 
-    // =========================
-    // 1. MODO OSCURO Y CLARO
-    // =========================
+    // =====================================
+    // 1. MODO CLARO Y OSCURO
+    // =====================================
+
     const modoBtn = document.getElementById("modoBtn");
 
     function aplicarModo(modo) {
-        document.body.classList.toggle(
-            "modo-oscuro",
-            modo === "oscuro"
-        );
+        const oscuro = modo === "oscuro";
+        document.body.classList.toggle("modo-oscuro", oscuro);
 
         if (modoBtn) {
-            modoBtn.textContent =
-                modo === "oscuro" ? "☀️ Claro" : "🌙 Oscuro";
+            modoBtn.textContent = oscuro ? " Claro" : " Oscuro";
+        }
+
+        try {
+            localStorage.setItem("modo", modo);
+        } catch (error) {
+            console.warn("No se pudo guardar el modo.");
         }
     }
 
-    let modoGuardado = "claro";
+    let modoInicial = "claro";
 
     try {
-        modoGuardado = localStorage.getItem("modo") || "claro";
+        modoInicial = localStorage.getItem("modo") || "claro";
     } catch (error) {
-        console.warn("No se pudo recuperar el tema guardado.");
+        console.warn("No se pudo recuperar el modo.");
     }
 
-    aplicarModo(modoGuardado);
+    aplicarModo(modoInicial);
 
     if (modoBtn) {
         modoBtn.addEventListener("click", function () {
-            const nuevoModo =
+            aplicarModo(
                 document.body.classList.contains("modo-oscuro")
                     ? "claro"
-                    : "oscuro";
-
-            aplicarModo(nuevoModo);
-
-            try {
-                localStorage.setItem("modo", nuevoModo);
-            } catch (error) {
-                console.warn("No se pudo guardar el tema.");
-            }
+                    : "oscuro"
+            );
         });
     }
 
+    // =====================================
+    // 2. ANIMACIONES SUAVES
+    // =====================================
 
-    // =========================
-    // 2. ANIMACIONES DE ENTRADA
-    // =========================
     const elementos = document.querySelectorAll(".reveal");
 
     if ("IntersectionObserver" in window) {
@@ -153,9 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     observador.unobserve(entrada.target);
                 }
             });
-        }, {
-            threshold: 0.1
-        });
+        }, { threshold: 0.1 });
 
         elementos.forEach(function (elemento) {
             observador.observe(elemento);
@@ -166,10 +67,10 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-
-    // =========================
+    // =====================================
     // 3. FORMULARIO DE CONTACTO
-    // =========================
+    // =====================================
+
     const formulario = document.getElementById("formContacto");
 
     if (formulario) {
@@ -179,10 +80,12 @@ document.addEventListener("DOMContentLoaded", function () {
             const boton = document.getElementById("enviarContacto");
             const estado = document.getElementById("estadoFormulario");
 
-            const nombre = document.getElementById("nombre").value.trim();
-            const correo = document.getElementById("correo").value.trim();
-            const motivo = document.getElementById("motivo").value;
-            const mensaje = document.getElementById("mensajeContacto").value.trim();
+            const nombre = document.getElementById("nombre")?.value.trim() || "";
+            const correo = document.getElementById("correo")?.value.trim() || "";
+            const motivo = document.getElementById("motivo")?.value || "";
+            const mensaje = document.getElementById("mensajeContacto")?.value.trim() || "";
+
+            if (!estado || !boton) return;
 
             if (!nombre || !correo || !motivo || !mensaje) {
                 estado.textContent = "Completa todos los campos.";
@@ -199,10 +102,10 @@ document.addEventListener("DOMContentLoaded", function () {
                         "Content-Type": "application/json"
                     },
                     body: JSON.stringify({
-                        nombre: nombre,
-                        correo: correo,
-                        motivo: motivo,
-                        mensaje: mensaje
+                        nombre,
+                        correo,
+                        motivo,
+                        mensaje
                     })
                 });
 
@@ -214,53 +117,55 @@ document.addEventListener("DOMContentLoaded", function () {
                     );
                 }
 
-                estado.textContent = "✅ ¡Mensaje enviado correctamente!";
+                estado.textContent = "✅ ¡Enviado correctamente!";
                 formulario.reset();
 
             } catch (error) {
-                console.error("Error de contacto:", error);
-
+                console.error("Error al enviar el formulario:", error);
                 estado.textContent =
                     error.message ||
-                    "❌ Error al enviar. Comprueba que el servidor esté activo.";
+                    "No se pudo enviar. Comprueba que el servidor esté funcionando.";
             } finally {
                 boton.disabled = false;
             }
         });
     }
 
-
-    // =========================
+    // =====================================
     // 4. EVALUACIÓN INTERACTIVA
-    // =========================
-    const botonEvaluar = document.getElementById("evaluarBtn");
+    // =====================================
 
-    if (botonEvaluar) {
-        botonEvaluar.addEventListener("click", function () {
-            const respuestas = document.querySelectorAll(
-                'input[type="radio"]:checked'
-            );
+    const evaluarBtn = document.getElementById("evaluarBtn");
 
+    if (evaluarBtn) {
+        evaluarBtn.addEventListener("click", function () {
             const preguntas = document.querySelectorAll("[data-pregunta]");
             const resultado = document.getElementById("resultado");
 
-            if (!resultado || preguntas.length === 0) {
-                return;
-            }
+            if (!resultado || preguntas.length === 0) return;
 
-            if (respuestas.length < preguntas.length) {
+            let puntos = 0;
+            let contestadas = 0;
+
+            preguntas.forEach(function (pregunta) {
+                const respuesta = pregunta.querySelector(
+                    'input[type="radio"]:checked'
+                );
+
+                if (respuesta) {
+                    contestadas++;
+
+                    if (respuesta.dataset.correcta === "true") {
+                        puntos++;
+                    }
+                }
+            });
+
+            if (contestadas < preguntas.length) {
                 resultado.textContent =
                     "Responde todas las preguntas antes de evaluar.";
                 return;
             }
-
-            let puntos = 0;
-
-            respuestas.forEach(function (respuesta) {
-                if (respuesta.dataset.correcta === "true") {
-                    puntos++;
-                }
-            });
 
             resultado.textContent =
                 "Tu resultado: " + puntos + " de " +
@@ -268,128 +173,139 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-});
+    // =====================================
+    // 5. TRADUCTOR ESPAÑOL - INGLÉS
+    // =====================================
 
-/* ========================================
-   CAMBIAR IDIOMA ESPAÑOL / INGLÉS
-======================================== */
+    const idiomaBtn = document.getElementById("idiomaBtn");
 
-const traducciones = {
-    "es": {
-        "Inicio": "Inicio",
-        "Producto": "Producto",
-        "JavaScript": "JavaScript",
-        "jQuery": "jQuery",
-        "JSON": "JSON",
-        "Hosting": "Hosting",
-        "Dominios": "Dominios",
-        "Evaluación": "Evaluación",
-        "Aprende tecnología de una forma diferente.": "Aprende tecnología de una forma diferente.",
-        "PROYECTO EDUCATIVO": "PROYECTO EDUCATIVO",
-        "Conocer NEXUS X": "Conocer NEXUS X",
-        "Probar evaluación": "Probar evaluación",
-        "Aprende": "Aprende",
-        "Programa": "Programa",
-        "Explora": "Explora",
-        "¿QUÉ ES?": "¿QUÉ ES?",
-        "Una idea pensada para estudiantes que quieren aprender tecnología.": "Una idea pensada para estudiantes que quieren aprender tecnología.",
-        "Aprendizaje": "Aprendizaje",
-        "Práctica": "Práctica",
-        "Innovación": "Innovación",
-        "🌙 Oscuro": "🌙 Oscuro",
-        "☀️ Claro": "☀️ Claro"
-    },
-
-    "en": {
-        "Inicio": "Home",
-        "Producto": "Product",
-        "JavaScript": "JavaScript",
-        "jQuery": "jQuery",
-        "JSON": "JSON",
-        "Hosting": "Hosting",
-        "Dominios": "Domains",
-        "Evaluación": "Quiz",
-        "Aprende tecnología de una forma diferente.": "Learn technology in a different way.",
-        "PROYECTO EDUCATIVO": "EDUCATIONAL PROJECT",
-        "Conocer NEXUS X": "Discover NEXUS X",
-        "Probar evaluación": "Take the quiz",
-        "Aprende": "Learn",
-        "Programa": "Code",
-        "Explora": "Explore",
-        "¿QUÉ ES?": "WHAT IS IT?",
-        "Una idea pensada para estudiantes que quieren aprender tecnología.": "An idea for students who want to learn technology.",
-        "Aprendizaje": "Learning",
-        "Práctica": "Practice",
-        "Innovación": "Innovation",
-        "🌙 Oscuro": "🌙 Dark",
-        "☀️ Claro": "☀️ Light"
-    }
-};
-
-function configurarIdioma() {
-    const boton = document.getElementById("idiomaBtn");
-
-    if (!boton) return;
-
-    // Guardamos el texto original de cada elemento
-    const elementos = document.querySelectorAll(
-        "a, h1, h2, h3, h4, h5, p, span, button"
-    );
-
-    elementos.forEach(function (elemento) {
-        if (elemento.id === "idiomaBtn") return;
-
-        if (!elemento.hasAttribute("data-texto-es")) {
-            elemento.setAttribute(
-                "data-texto-es",
-                elemento.textContent.trim()
-            );
+    const traducciones = {
+        etiqueta: {
+            es: "TECNOLOGÍA PARA EL FUTURO",
+            en: "TECHNOLOGY FOR THE FUTURE"
+        },
+        titulo: {
+            es: "CREA EL FUTURO DIGITAL",
+            en: "CREATE THE DIGITAL FUTURE"
+        },
+        descripcion: {
+            es: "Descubre herramientas y tecnologías para crear experiencias digitales increíbles.",
+            en: "Discover tools and technologies to create amazing digital experiences."
+        },
+        conocer: {
+            es: "CONOCER MÁS",
+            en: "LEARN MORE"
+        },
+        evaluacion: {
+            es: "Evaluación interactiva",
+            en: "Interactive quiz"
+        },
+        aprende: {
+            es: "Aprende sobre desarrollo web",
+            en: "Learn about web development"
+        },
+        futuro: {
+            es: "El futuro comienza aquí",
+            en: "The future starts here"
+        },
+        programa: {
+            es: "Programa, crea e innova",
+            en: "Code, create and innovate"
+        },
+        tecnologias: {
+            es: "Tecnologías web",
+            en: "Web technologies"
+        },
+        explora: {
+            es: "Explora nuestras tecnologías",
+            en: "Explore our technologies"
+        },
+        herramientas: {
+            es: "Herramientas digitales",
+            en: "Digital tools"
+        },
+        queEs: {
+            es: "¿Qué es?",
+            en: "What is it?"
+        },
+        idea: {
+            es: "Aprende algo nuevo",
+            en: "Learn something new"
+        },
+        aprendizaje: {
+            es: "Aprendizaje",
+            en: "Learning"
+        },
+        infoAprendizaje: {
+            es: "Aprende paso a paso con nuestros recursos.",
+            en: "Learn step by step with our resources."
+        },
+        practica: {
+            es: "Practica tus conocimientos",
+            en: "Practice your knowledge"
+        },
+        infoPractica: {
+            es: "Pon a prueba lo que has aprendido.",
+            en: "Test what you have learned."
+        },
+        innovacion: {
+            es: "Innovación digital",
+            en: "Digital innovation"
+        },
+        infoInnovacion: {
+            es: "Descubre nuevas formas de usar la tecnología.",
+            en: "Discover new ways to use technology."
+        },
+        pie: {
+            es: "Todos los derechos reservados.",
+            en: "All rights reserved."
         }
-    });
+    };
+
+    let idiomaActual = "es";
+
+    try {
+        idiomaActual = localStorage.getItem("idiomaNexus") || "es";
+    } catch (error) {
+        console.warn("No se pudo recuperar el idioma.");
+    }
 
     function cambiarIdioma(idioma) {
-        elementos.forEach(function (elemento) {
-            if (elemento.id === "idiomaBtn") return;
+        if (!traducciones || !["es", "en"].includes(idioma)) {
+            return;
+        }
 
-            const original = elemento.getAttribute("data-texto-es");
-
-            if (original && traducciones[idioma][original]) {
-                elemento.textContent = traducciones[idioma][original];
-            } else if (original) {
-                elemento.textContent = original;
-            }
-        });
-
-        document.documentElement.lang = idioma;
-        boton.textContent = idioma === "es"
-            ? "🇺🇸 English"
-            : "🇸🇻 Español";
+        idiomaActual = idioma;
 
         try {
             localStorage.setItem("idiomaNexus", idioma);
         } catch (error) {
             console.warn("No se pudo guardar el idioma.");
         }
+
+        document.querySelectorAll("[data-i18n]").forEach(function (elemento) {
+            const clave = elemento.dataset.i18n;
+            const traduccion = traducciones[clave];
+
+            if (traduccion && traduccion[idioma] !== undefined) {
+                elemento.textContent = traduccion[idioma];
+            }
+        });
+
+        document.documentElement.lang = idioma;
+
+        if (idiomaBtn) {
+            idiomaBtn.textContent =
+                idioma === "es" ? "🌐 English" : "🌐 Español";
+        }
     }
 
-    let idiomaGuardado = "es";
-
-    try {
-        idiomaGuardado = localStorage.getItem("idiomaNexus") || "es";
-    } catch (error) {
-        console.warn("No se pudo recuperar el idioma.");
+    if (idiomaBtn) {
+        idiomaBtn.addEventListener("click", function () {
+            cambiarIdioma(idiomaActual === "es" ? "en" : "es");
+        });
     }
 
-    cambiarIdioma(idiomaGuardado);
+    cambiarIdioma(idiomaActual);
 
-    boton.addEventListener("click", function () {
-        const idiomaActual = document.documentElement.lang;
-        cambiarIdioma(idiomaActual === "es" ? "en" : "es");
-    });
-}
-
-if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", configurarIdioma);
-} else {
-    configurarIdioma();
-}
+});

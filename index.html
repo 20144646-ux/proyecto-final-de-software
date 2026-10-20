@@ -1,93 +1,190 @@
-<!-- ====== FORMULARIO DE CONTACTO ====== -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXUS X | Inicio</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- MENÚ -->
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html">
+            <span class="logo">NX</span> NEXUS X
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#menu" aria-label="Abrir menú">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav ms-auto align-items-lg-center">
+                <li class="nav-item"><a class="nav-link active" href="index.html">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link" href="producto.html">Producto</a></li>
+                <li class="nav-item"><a class="nav-link" href="javascript.html">JavaScript</a></li>
+                <li class="nav-item"><a class="nav-link" href="jquery.html">jQuery</a></li>
+                <li class="nav-item"><a class="nav-link" href="json.html">JSON</a></li>
+                <li class="nav-item"><a class="nav-link" href="hosting.html">Hosting</a></li>
+                <li class="nav-item"><a class="nav-link" href="dominios.html">Dominios</a></li>
+                <li class="nav-item"><a class="nav-link" href="evaluacion.html">Evaluación</a></li>
+                <li class="nav-item"><a class="nav-link" href="herramientas-google.html">Herramientas Google</a></li>
+
+                <li class="nav-item ms-lg-2 mb-2 mb-lg-0">
+                    <button id="modoBtn" class="btn btn-outline-light btn-sm" type="button">
+                        🌙 Modo oscuro
+                    </button>
+                </li>
+
+                <li class="nav-item ms-lg-2">
+                    <button id="idiomaBtn" class="btn btn-info btn-sm" type="button">
+                        🇺🇸 English
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- PORTADA -->
+<header class="hero">
+    <div class="container">
+        <div class="row align-items-center g-4">
+
+            <div class="col-lg-6 reveal">
+                <span class="badge text-bg-primary mb-3" data-i18n="etiqueta">PROYECTO EDUCATIVO</span>
+
+                <h1 data-i18n="titulo">Aprende tecnología de una forma diferente.</h1>
+
+                <p data-i18n="descripcion">
+                    NEXUS X es una plataforma educativa creada para estudiantes
+                    que quieren aprender sobre desarrollo web, programación y nuevas tecnologías.
+                </p>
+
+                <div class="d-flex gap-2 flex-wrap">
+                    <a href="producto.html" class="btn btn-primary btn-lg" data-i18n="conocer">
+                        Conocer NEXUS X
+                    </a>
+                    <a href="evaluacion.html" class="btn btn-outline-light btn-lg" data-i18n="evaluacion">
+                        Probar evaluación
+                    </a>
+                </div>
+            </div>
+
+            <!-- CARRUSEL -->
+            <div class="col-lg-6 reveal">
+                <div id="carruselNexus"
+                    class="carousel slide carousel-fade shadow-lg"
+                    data-bs-ride="carousel">
+
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carruselNexus"
+                            data-bs-slide-to="0" class="active" aria-label="Imagen 1"></button>
+                        <button type="button" data-bs-target="#carruselNexus"
+                            data-bs-slide-to="1" aria-label="Imagen 2"></button>
+                        <button type="button" data-bs-target="#carruselNexus"
+                            data-bs-slide-to="2" aria-label="Imagen 3"></button>
+                    </div>
+
+                    <div class="carousel-inner rounded-4">
+                        <div class="carousel-item active">
+                            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1000&q=80"
+                                class="d-block w-100" alt="Estudiante usando computadora">
+                            <div class="carousel-caption">
+                                <h5 data-i18n="aprende">Aprende</h5>
+                                <p data-i18n="futuro">Convierte la tecnología en una herramienta para tu futuro.</p>
+                            </div>
+                        </div>
+
+                        <div class="carousel-item">
+                            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1000&q=80"
+                                class="d-block w-100" alt="Programación">
+                            <div class="carousel-caption">
+                                <h5 data-i18n="programa">Programa</h5>
+                                <p data-i18n="tecnologias">Conoce tecnologías utilizadas en el desarrollo web.</p>
+                            </div>
+                        </div>
+
+                        <div class="carousel-item">
+                            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1000&q=80"
+                                class="d-block w-100" alt="Tecnología">
+                            <div class="carousel-caption">
+                                <h5 data-i18n="explora">Explora</h5>
+                                <p data-i18n="herramientas">Descubre nuevas herramientas digitales e inteligencia artificial.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="carousel-control-prev" type="button"
+                        data-bs-target="#carruselNexus" data-bs-slide="prev"
+                        aria-label="Anterior">
+                        <span class="carousel-control-prev-icon"></span>
+                    </button>
+
+                    <button class="carousel-control-next" type="button"
+                        data-bs-target="#carruselNexus" data-bs-slide="next"
+                        aria-label="Siguiente">
+                        <span class="carousel-control-next-icon"></span>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</header>
+
+<!-- INFORMACIÓN -->
 <section class="section">
     <div class="container">
+
         <div class="section-title reveal">
-            <span>CONTÁCTANOS</span>
-            <h2>Envíanos tu información</h2>
-            <p>Escribe tu nombre y correo, y llegará a nuestro canal de Discord.</p>
+            <span data-i18n="queEs">¿QUÉ ES?</span>
+            <h2>NEXUS X</h2>
+            <p data-i18n="idea">Una idea pensada para estudiantes que quieren aprender tecnología.</p>
         </div>
 
-        <div class="row justify-content-center">
-            <div class="col-md-6 col-lg-4">
-                <form id="formContacto" class="p-4 border rounded-3 bg-dark text-light">
-                    <div class="mb-3">
-                        <label for="nombre" class="form-label">👤 Tu Nombre</label>
-                        <input type="text" class="form-control" id="nombre" placeholder="Escribe tu nombre" required>
-                    </div>
+        <div class="row g-4">
+            <div class="col-md-4 reveal">
+                <div class="info-card">
+                    <i class="bi bi-lightbulb"></i>
+                    <h3 data-i18n="aprendizaje">Aprendizaje</h3>
+                    <p data-i18n="infoAprendizaje">Información sencilla para comprender conceptos de desarrollo web.</p>
+                </div>
+            </div>
 
-                    <div class="mb-3">
-                        <label for="correo" class="form-label">📧 Tu Correo</label>
-                        <input type="email" class="form-control" id="correo" placeholder="tu@correo.com" required>
-                    </div>
+            <div class="col-md-4 reveal">
+                <div class="info-card">
+                    <i class="bi bi-code-slash"></i>
+                    <h3 data-i18n="practica">Práctica</h3>
+                    <p data-i18n="infoPractica">Ejemplos interactivos para aprender haciendo y no solamente leyendo.</p>
+                </div>
+            </div>
 
-                    <div class="mb-3">
-                        <label for="mensaje" class="form-label">💬 Mensaje</label>
-                        <textarea class="form-control" id="mensaje" rows="4" placeholder="Escribe tu mensaje aquí..." required></textarea>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary w-100">
-                        <i class="bi bi-send"></i> Enviar a Discord
-                    </button>
-                </form>
-
-                <!-- Caja de mensaje de éxito/error -->
-                <div id="resultado" class="mt-3 alert d-none text-center"></div>
+            <div class="col-md-4 reveal">
+                <div class="info-card">
+                    <i class="bi bi-stars"></i>
+                    <h3 data-i18n="innovacion">Innovación</h3>
+                    <p data-i18n="infoInnovacion">Incluye información sobre inteligencia artificial y herramientas modernas.</p>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-<script>
-// https://discord.com/api/webhooks/1558109119259480226/wbZwk8zXHB99Vts2l6KYPtoo21O7PFKI_dRQUpz5aFYoDN_pxkrTRtaXl4LfyyIipesA
-const WEBHOOK_URL = "https://discord.com/api/webhooks/1558109119259480226/wbZwk8zXHB99Vts2l6KYPtoo21O7PFKI_dRQUpz5aFYoDN_pxkrTRtaXl4LfyyIipesA";
+<!-- PIE DE PÁGINA -->
+<footer>
+    <p data-i18n="pie">© 2026 NEXUS X | Proyecto de Desarrollo Web</p>
+</footer>
 
-const form = document.getElementById('formContacto');
-const resultado = document.getElementById('resultado');
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
 
-form.addEventListener('submit', async function(e) {
-    e.preventDefault();
-
-    // Leer los datos del formulario
-    const nombre = document.getElementById('nombre').value;
-    const correo = document.getElementById('correo').value;
-    const mensaje = document.getElementById('mensaje').value;
-
-    // Mostrar "enviando..."
-    resultado.classList.remove('d-none');
-    resultado.className = "mt-3 alert alert-info text-center";
-    resultado.textContent = "📤 Enviando tu mensaje...";
-
-    try {
-        // Enviar a Discord
-        const respuesta = await fetch(WEBHOOK_URL, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                embeds: [{
-                    title: "📩 Nuevo mensaje recibido",
-                    color: 39423, // Color verde
-                    fields: [
-                        { name: "👤 Nombre", value: nombre, inline: false },
-                        { name: "📧 Correo", value: correo, inline: false },
-                        { name: "💬 Mensaje", value: mensaje, inline: false }
-                    ],
-                    timestamp: new Date().toISOString()
-                }]
-            })
-        });
-
-        if (respuesta.ok) {
-            // ✅ Éxito
-            resultado.className = "mt-3 alert alert-success text-center";
-            resultado.innerHTML = `✅ ¡Mensaje enviado con éxito!<br>Gracias, <strong>${nombre}</strong>. Te responderemos pronto.`;
-            form.reset(); // Limpiar formulario
-        } else {
-            throw new Error("Error en el servidor");
-        }
-    } catch (error) {
-        // ❌ Error
-        resultado.className = "mt-3 alert alert-danger text-center";
-        resultado.textContent = "❌ No se pudo enviar. Verifica el enlace de Discord.";
-    }
-});
-</script>
+</body>
+</html>
