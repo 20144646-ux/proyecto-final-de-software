@@ -1,0 +1,179 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi cuenta | VOLTIX</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="index.html">VOLTIX<span>.</span></a>
+
+    <div class="d-flex gap-2">
+      <button class="btn btn-outline-secondary btn-sm" id="idiomaBtn">EN</button>
+      <button class="btn btn-outline-secondary btn-sm" id="modoBtn">
+        <i class="bi bi-moon-stars"></i> Oscuro
+      </button>
+      <a href="index.html" class="btn btn-outline-dark btn-sm">
+        <i class="bi bi-house"></i>
+        <span data-es="Inicio" data-en="Home">Inicio</span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<main class="container py-5">
+  <div class="row justify-content-center align-items-center g-4">
+    <div class="col-12 col-lg-5">
+      <div class="p-3 p-md-4">
+        <p class="text-uppercase small fw-bold">VOLTIX / ACCOUNT</p>
+        <h1 class="display-5 fw-bold" data-es="Tu espacio tecnológico." data-en="Your technology space.">Tu espacio tecnológico.</h1>
+        <p class="text-secondary" data-es="Iniciá sesión o creá una cuenta para continuar." data-en="Sign in or create an account to continue.">Iniciá sesión o creá una cuenta para continuar.</p>
+        <img
+          src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1000&q=80"
+          alt="Persona utilizando una computadora"
+          class="img-fluid rounded-4 mt-3"
+          onerror="this.onerror=null;this.src='https://placehold.co/800x500?text=VOLTIX';">
+      </div>
+    </div>
+
+    <div class="col-12 col-lg-5">
+      <div class="info-card p-4 p-md-5">
+        <div class="d-flex gap-2 mb-4">
+          <button id="tabLogin" class="btn btn-dark flex-fill" data-es="Iniciar sesión" data-en="Sign in">Iniciar sesión</button>
+          <button id="tabRegistro" class="btn btn-outline-dark flex-fill" data-es="Registrarme" data-en="Register">Registrarme</button>
+        </div>
+
+        <form id="formLogin">
+          <h2 class="h4 fw-bold mb-1" data-es="¡Qué bueno verte!" data-en="Welcome back!">¡Qué bueno verte!</h2>
+          <p class="text-secondary small mb-4" data-es="Ingresá tus datos para continuar." data-en="Enter your details to continue.">Ingresá tus datos para continuar.</p>
+
+          <div class="mb-3">
+            <label for="correoLogin" class="form-label" data-es="Correo electrónico" data-en="Email address">Correo electrónico</label>
+            <input type="email" id="correoLogin" class="form-control" autocomplete="email" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="claveLogin" class="form-label" data-es="Contraseña" data-en="Password">Contraseña</label>
+            <input type="password" id="claveLogin" class="form-control" autocomplete="current-password" minlength="6" required>
+          </div>
+
+          <button type="submit" class="btn btn-dark w-100 py-2">
+            <span data-es="Entrar" data-en="Sign in">Entrar</span>
+            <i class="bi bi-arrow-right"></i>
+          </button>
+        </form>
+
+        <form id="formRegistro" class="d-none">
+          <h2 class="h4 fw-bold mb-1" data-es="Crear cuenta" data-en="Create account">Crear cuenta</h2>
+          <p class="text-secondary small mb-4" data-es="Completá los datos para registrarte." data-en="Fill in your details to register.">Completá los datos para registrarte.</p>
+
+          <div class="mb-3">
+            <label for="nombreRegistro" class="form-label" data-es="Nombre completo" data-en="Full name">Nombre completo</label>
+            <input type="text" id="nombreRegistro" class="form-control" autocomplete="name" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="correoRegistro" class="form-label" data-es="Correo electrónico" data-en="Email address">Correo electrónico</label>
+            <input type="email" id="correoRegistro" class="form-control" autocomplete="email" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="claveRegistro" class="form-label" data-es="Crear contraseña" data-en="Create password">Crear contraseña</label>
+            <input type="password" id="claveRegistro" class="form-control" autocomplete="new-password" minlength="6" required>
+            <small class="text-secondary" data-es="Mínimo 6 caracteres para esta demostración." data-en="At least 6 characters for this demo.">Mínimo 6 caracteres para esta demostración.</small>
+          </div>
+
+          <button type="submit" class="btn btn-dark w-100 py-2">
+            <span data-es="Crear cuenta" data-en="Create account">Crear cuenta</span>
+            <i class="bi bi-person-plus"></i>
+          </button>
+        </form>
+
+        <div id="mensajeCuenta" class="alert alert-info mt-3 d-none" role="status"></div>
+
+        <p class="small text-secondary mt-4 mb-0">
+          <i class="bi bi-info-circle"></i>
+          <span data-es="Demostración escolar: para tener cuentas reales se necesita un servidor seguro." data-en="School demo: real accounts require a secure server.">Demostración escolar: para tener cuentas reales se necesita un servidor seguro.</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="border-top py-4 mt-4">
+  <div class="container text-center text-secondary small">
+    © <span id="anioCuenta"></span> VOLTIX
+  </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
+
+<script>
+$(function () {
+  $("#anioCuenta").text(new Date().getFullYear());
+
+  function esIngles() {
+    return localStorage.getItem("idiomaVOLTIX") === "en";
+  }
+
+  function mostrarMensaje(es, en) {
+    $("#mensajeCuenta")
+      .removeClass("d-none")
+      .text(esIngles() ? en : es);
+  }
+
+  function cambiarPestana(registro) {
+    $("#formLogin").toggleClass("d-none", registro);
+    $("#formRegistro").toggleClass("d-none", !registro);
+
+    $("#tabLogin")
+      .toggleClass("btn-dark", !registro)
+      .toggleClass("btn-outline-dark", registro);
+
+    $("#tabRegistro")
+      .toggleClass("btn-dark", registro)
+      .toggleClass("btn-outline-dark", !registro);
+
+    $("#mensajeCuenta").addClass("d-none");
+  }
+
+  $("#tabLogin").on("click", function () {
+    cambiarPestana(false);
+  });
+
+  $("#tabRegistro").on("click", function () {
+    cambiarPestana(true);
+  });
+
+  $("#formLogin").on("submit", function (e) {
+    e.preventDefault();
+
+    mostrarMensaje(
+      "La interfaz funciona, pero el inicio de sesión todavía no está conectado a un sistema de usuarios.",
+      "The interface works, but sign-in is not connected to a user system yet."
+    );
+  });
+
+  $("#formRegistro").on("submit", function (e) {
+    e.preventDefault();
+
+    mostrarMensaje(
+      "El formulario funciona, pero para registrar cuentas reales hay que conectar una base de datos y un servidor seguro.",
+      "The form works, but real accounts require a database and a secure server."
+    );
+  });
+});
+</script>
+
+</body>
+</html>

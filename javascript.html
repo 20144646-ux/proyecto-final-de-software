@@ -1,85 +1,90 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEXUS X | JavaScript</title>
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript | VOLTIX</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
-<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+  <nav class="navbar navbar-expand-lg sticky-top">
     <div class="container">
-        <a class="navbar-brand fw-bold" href="index.html"><span class="logo">NX</span> NEXUS X</a>
-
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="menu">
-            <ul class="navbar-nav ms-auto align-items-lg-center">
-                <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
-                <li class="nav-item"><a class="nav-link" href="producto.html">Producto</a></li>
-                <li class="nav-item"><a class="nav-link active" href="javascript.html">JavaScript</a></li>
-                <li class="nav-item"><a class="nav-link" href="jquery.html">jQuery</a></li>
-                <li class="nav-item"><a class="nav-link" href="json.html">JSON</a></li>
-                <li class="nav-item"><a class="nav-link" href="hosting.html">Hosting</a></li>
-                <li class="nav-item"><a class="nav-link" href="dominios.html">Dominios</a></li>
-                <li class="nav-item"><a class="nav-link" href="evaluacion.html">Evaluación</a></li>
-                <li class="nav-item ms-lg-2"><button id="modoBtn" class="btn btn-outline-light btn-sm">🌙 Oscuro</button></li>
-            </ul>
-        </div>
+      <a class="navbar-brand fw-bold" href="index.html">VOLTIX<span>.</span></a>
+      <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="menu">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="jquery.html">jQuery</a></li>
+          <li class="nav-item"><a class="nav-link" href="json.html">JSON</a></li>
+          <li class="nav-item"><button class="btn btn-outline-dark ms-lg-2" id="modoBtn">🌙 Modo oscuro</button></li>
+        </ul>
+      </div>
     </div>
-</nav>
+  </nav>
 
-<section class="page-header">
+  <header class="page-header">
     <div class="container">
-        <span class="badge text-bg-primary">TECNOLOGÍA 01</span>
-        <h1>JavaScript</h1>
-        <p>El lenguaje que permite agregar interacción a una página web.</p>
+      <h1>JavaScript</h1>
+      <p>El lenguaje que permite añadir interactividad a los sitios web.</p>
     </div>
-</section>
+  </header>
 
-<section class="section">
+  <main class="container content-section">
+    <section class="info-card">
+      <h2>¿Qué es JavaScript?</h2>
+      <p>JavaScript es un lenguaje de programación utilizado para crear funciones interactivas en las páginas web. Puede responder a clics, validar formularios, modificar contenido y actualizar elementos sin recargar toda la página.</p>
+    </section>
+
+    <section class="info-card">
+      <h2>¿Para qué se utiliza?</h2>
+      <ul>
+        <li>Crear menús y botones interactivos.</li>
+        <li>Validar formularios.</li>
+        <li>Mostrar información dinámica.</li>
+        <li>Leer datos de archivos JSON.</li>
+        <li>Crear cuestionarios y calcular resultados.</li>
+      </ul>
+    </section>
+
+    <section class="info-card">
+      <h2>Ejemplo práctico</h2>
+      <p>Presioná el botón para ver JavaScript en funcionamiento.</p>
+      <button class="btn btn-dark" id="saludoBtn">Probar JavaScript</button>
+      <p id="saludoResultado" class="mt-3" aria-live="polite"></p>
+      <pre class="code-example"><code>document.getElementById("saludoBtn")
+  .addEventListener("click", function () {
+    document.getElementById("saludoResultado")
+      .textContent = "¡JavaScript está funcionando!";
+  });</code></pre>
+    </section>
+
+    <section class="info-card">
+      <h2>Importancia en VOLTIX</h2>
+      <p>En este proyecto, JavaScript ayuda a manejar el cuestionario, mostrar productos y activar diferentes funciones de la página.</p>
+    </section>
+
+    <a href="jquery.html" class="btn btn-outline-dark">Siguiente tema: jQuery →</a>
+  </main>
+
+  <footer class="footer text-center">
     <div class="container">
-
-        <div class="content-box reveal">
-            <h2><i class="bi bi-filetype-js"></i> ¿Qué es JavaScript?</h2>
-            <p>
-                JavaScript es un lenguaje de programación utilizado principalmente
-                para hacer que las páginas web sean dinámicas e interactivas.
-            </p>
-
-            <hr>
-
-            <h4>Algunos usos</h4>
-            <ul>
-                <li>Crear botones interactivos.</li>
-                <li>Modificar contenido de una página.</li>
-                <li>Validar formularios.</li>
-                <li>Crear animaciones.</li>
-                <li>Trabajar con datos.</li>
-            </ul>
-
-            <button class="btn btn-primary" onclick="cambiarMensaje()">
-                Probar JavaScript
-            </button>
-
-            <p id="mensaje" class="mt-3 fw-bold"></p>
-        </div>
-
+      <a class="navbar-brand fw-bold" href="index.html">VOLTIX<span>.</span></a>
+      <p class="mt-2 mb-0">Proyecto educativo de desarrollo web.</p>
     </div>
-</section>
+  </footer>
 
-<footer>
-    <p>© 2026 NEXUS X | JavaScript</p>
-</footer>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="script.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+  <script>
+    document.getElementById("saludoBtn").addEventListener("click", function () {
+      document.getElementById("saludoResultado").textContent =
+        "¡JavaScript está funcionando correctamente!";
+    });
+  </script>
 </body>
 </html>

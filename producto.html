@@ -1,304 +1,253 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEXUS X | Producto</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Productos | VOLTIX</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
-    <div class="container">
-        <a class="navbar-brand fw-bold" href="index.html">
-            <span class="logo">NX</span> NEXUS X
-        </a>
+<nav class="navbar navbar-expand-lg sticky-top">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="index.html">VOLTIX<span>.</span></a>
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
-            <span class="navbar-toggler-icon"></span>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuV">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="menuV">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="index.html" data-es="Inicio" data-en="Home">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link active" href="producto.html" data-es="Productos" data-en="Products">Productos</a></li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+             data-es="Aprende" data-en="Learn">Aprende</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="javascript.html">JavaScript</a></li>
+            <li><a class="dropdown-item" href="jquery.html">jQuery</a></li>
+            <li><a class="dropdown-item" href="json.html">JSON</a></li>
+            <li><a class="dropdown-item" href="hosting.html">Web Hosting</a></li>
+            <li><a class="dropdown-item" href="dominios.html" data-es="Dominios" data-en="Domains">Dominios</a></li>
+            <li><a class="dropdown-item" href="herramientas-google.html" data-es="Herramientas de Google" data-en="Google Tools">Herramientas de Google</a></li>
+            <li><a class="dropdown-item" href="evaluacion.html" data-es="Evaluación" data-en="Evaluation">Evaluación</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <div class="d-flex flex-wrap gap-2">
+        <button class="btn btn-outline-secondary btn-sm" id="idiomaBtn">EN</button>
+        <button class="btn btn-outline-secondary btn-sm" id="modoBtn">
+          <i class="bi bi-moon-stars"></i> Oscuro
         </button>
-
-        <div class="collapse navbar-collapse" id="menu">
-            <ul class="navbar-nav ms-auto align-items-lg-center">
-                <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
-                <li class="nav-item"><a class="nav-link active" href="producto.html">Producto</a></li>
-                <li class="nav-item"><a class="nav-link" href="javascript.html">JavaScript</a></li>
-                <li class="nav-item"><a class="nav-link" href="jquery.html">jQuery</a></li>
-                <li class="nav-item"><a class="nav-link" href="json.html">JSON</a></li>
-                <li class="nav-item"><a class="nav-link" href="hosting.html">Hosting</a></li>
-                <li class="nav-item"><a class="nav-link" href="dominios.html">Dominios</a></li>
-                <li class="nav-item"><a class="nav-link" href="evaluacion.html">Evaluación</a></li>
-                <li class="nav-item ms-lg-2">
-                    <button id="modoBtn" class="btn btn-outline-light btn-sm">🌙 Oscuro</button>
-                </li>
-            </ul>
-        </div>
+        <a class="btn btn-dark btn-sm" href="login.html" data-es="Mi cuenta" data-en="My account">Mi cuenta</a>
+      </div>
     </div>
+  </div>
 </nav>
 
-<section class="page-header">
-    <div class="container">
-        <span class="badge text-bg-primary">NUESTRO PRODUCTO</span>
-        <h1>NEXUS X</h1>
-        <p>Una plataforma educativa digital pensada para estudiantes.</p>
+<main class="container py-5">
+  <div class="mb-4">
+    <p class="text-uppercase small fw-bold mb-2">VOLTIX / STORE</p>
+    <h1 class="display-5 fw-bold" data-es="Explorá nuestros productos" data-en="Explore our products">Explorá nuestros productos</h1>
+    <p class="text-secondary" data-es="Tecnología para estudiar, trabajar y disfrutar." data-en="Technology for studying, working and enjoying.">Tecnología para estudiar, trabajar y disfrutar.</p>
+  </div>
+
+  <div class="row g-3 align-items-end mb-4">
+    <div class="col-12 col-md-4">
+      <label for="buscarProducto" class="form-label" data-es="Buscar producto" data-en="Search products">Buscar producto</label>
+      <div class="input-group">
+        <span class="input-group-text"><i class="bi bi-search"></i></span>
+        <input type="search" id="buscarProducto" class="form-control"
+          placeholder="Escribí el nombre..." data-es-placeholder="Escribí el nombre..." data-en-placeholder="Type a product name...">
+      </div>
     </div>
-</section>
 
-<section class="section">
-    <div class="container">
-
-        <div class="row g-4 mb-5">
-
-            <div class="col-lg-6 reveal">
-                <div class="content-box h-100">
-                    <h2><i class="bi bi-box"></i> ¿Qué ofrecemos?</h2>
-                    <p>
-                        NEXUS X es una plataforma digital educativa que reúne
-                        explicaciones, ejemplos y actividades relacionadas con
-                        tecnologías de desarrollo web.
-                    </p>
-                    <p>
-                        La idea es que un estudiante pueda aprender conceptos
-                        importantes de una manera más visual, sencilla e interactiva.
-                    </p>
-                </div>
-            </div>
-
-            <div class="col-lg-6 reveal">
-                <div class="content-box h-100">
-                    <h2><i class="bi bi-people"></i> Público objetivo</h2>
-                    <p>
-                        Está dirigido principalmente a estudiantes de secundaria
-                        y bachillerato interesados en informática, programación
-                        y tecnología.
-                    </p>
-
-                    <div class="mt-3">
-                        <span class="badge rounded-pill text-bg-primary">Estudiantes</span>
-                        <span class="badge rounded-pill text-bg-info">Programación</span>
-                        <span class="badge rounded-pill text-bg-secondary">Tecnología</span>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="content-box mb-5 reveal">
-            <h2><i class="bi bi-rocket-takeoff"></i> Propuesta de valor</h2>
-            <p>
-                NEXUS X busca facilitar el aprendizaje de tecnología mediante
-                contenido resumido, ejemplos prácticos, ejercicios y herramientas
-                interactivas en un solo sitio.
-            </p>
-        </div>
-
-        <div class="section-title reveal" id="ia-google">
-            <span>INVESTIGACIÓN</span>
-            <h2>15 herramientas y proyectos de IA de Google</h2>
-            <p>
-                Algunas herramientas forman parte del ecosistema actual de inteligencia
-                artificial de Google y otras son proyectos o productos relacionados.
-            </p>
-        </div>
-
-        <div class="row g-3">
-
-            <div class="col-md-6 col-lg-4 reveal">
-                <div class="ai-card">
-                    <span>01</span>
-                    <h3>Gemini</h3>
-                    <p>Asistente de inteligencia artificial de Google para responder preguntas, crear contenido y ayudar con diferentes tareas.</p>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-lg-4 reveal">
-                <div class="ai-card">
-                    <span>02</span>
-                    <h3>Gemini Live</h3>
-                    <p>Permite interactuar con Gemini mediante conversaciones de voz de una manera más natural.</p>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-lg-4 reveal">
-                <div class="ai-card">
-                    <span>03</span>
-                    <h3>Gemini Notebook</h3>
-                    <p>Herramienta enfocada en investigación, estudio y organización de información y fuentes.</p>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-lg-4 reveal">
-                <div class="ai-card">
-                    <span>04</span>
-                    <h3>Google AI Studio</h3>
-                    <p>Plataforma para experimentar y crear aplicaciones utilizando modelos de inteligencia artificial de Google.</p>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-lg-4 reveal">
-                <div class="ai-card">
-                    <span>05</span>
-                    <h3>Gemini API</h3>
-                    <p>Permite integrar modelos Gemini dentro de aplicaciones y proyectos de programación.</p>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-lg-4 reveal">
-                <div class="ai-card">
-                    <span>06</span>
-                    <h3>Imagen</h3>
-                    <p>Familia de modelos de Google utilizada para generar y trabajar con imágenes mediante inteligencia artificial.</p>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-lg-4 reveal">
-                <div class="ai-card">
-                    <span>07</span>
-                    <h3>Veo</h3>
-                    <p>Modelo de inteligencia artificial de Google enfocado en la generación de video.</p>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-lg-4 reveal">
-                <div class="ai-card">
-                    <span>08</span>
-                    <h3>Lyria</h3>
-                    <p>Tecnología de Google DeepMind enfocada en la generación y creación de música mediante IA.</p>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-lg-4 reveal">
-                <div class="ai-card">
-                    <span>09</span>
-                    <h3>Flow</h3>
-                    <p>Herramienta creativa de Google para crear historias y videos utilizando modelos de IA.</p>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-lg-4 reveal">
-                <div class="ai-card">
-                    <span>10</span>
-                    <h3>Stitch</h3>
-                    <p>Herramienta de diseño que ayuda a convertir ideas en interfaces y experiencias digitales.</p>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-lg-4 reveal">
-                <div class="ai-card">
-                    <span>11</span>
-                    <h3>Jules</h3>
-                    <p>Agente experimental de Google diseñado para ayudar en tareas relacionadas con programación.</p>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-lg-4 reveal">
-                <div class="ai-card">
-                    <span>12</span>
-                    <h3>Google Antigravity</h3>
-                    <p>Plataforma orientada al desarrollo con agentes de IA y herramientas para programadores.</p>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-lg-4 reveal">
-                <div class="ai-card">
-                    <span>13</span>
-                    <h3>Nano Banana</h3>
-                    <p>Tecnología de generación y edición de imágenes integrada en diferentes experiencias de Google.</p>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-lg-4 reveal">
-                <div class="ai-card">
-                    <span>14</span>
-                    <h3>AI Mode</h3>
-                    <p>Experiencia de búsqueda de Google que utiliza inteligencia artificial para ayudar a explorar información.</p>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-lg-4 reveal">
-                <div class="ai-card">
-                    <span>15</span>
-                    <h3>Google Labs</h3>
-                    <p>Espacio donde Google presenta y prueba nuevos experimentos y proyectos relacionados con IA.</p>
-                </div>
-            </div>
-
-        </div>
-
+    <div class="col-6 col-md-3">
+      <label for="filtroCategoria" class="form-label" data-es="Categoría" data-en="Category">Categoría</label>
+      <select id="filtroCategoria" class="form-select">
+        <option value="todas" data-es="Todas" data-en="All">Todas</option>
+      </select>
     </div>
-</section>
 
-<section class="section" id="contacto">
-    <div class="container">
-        <div class="section-title">
-            <span>CONTACTO</span>
-            <h2>Hablemos de tu idea</h2>
-            <p>Completa el formulario para enviar tu consulta.</p>
-        </div>
-
-        <div class="content-box mx-auto" style="max-width: 750px;">
-            <form id="formContacto">
-                <div class="mb-3">
-                    <label for="nombre" class="form-label">Nombre</label>
-                    <input
-                        type="text"
-                        class="form-control"
-                        id="nombre"
-                        name="nombre"
-                        maxlength="80"
-                        required>
-                </div>
-
-                <div class="mb-3">
-                    <label for="correo" class="form-label">Correo electrónico</label>
-                    <input
-                        type="email"
-                        class="form-control"
-                        id="correo"
-                        name="correo"
-                        maxlength="150"
-                        required>
-                </div>
-
-                <div class="mb-3">
-                    <label for="motivo" class="form-label">Motivo</label>
-                    <select class="form-select" id="motivo" name="motivo" required>
-                        <option value="">Selecciona una opción</option>
-                        <option value="Consulta">Consulta</option>
-                        <option value="Sugerencia">Sugerencia</option>
-                        <option value="Información">Información</option>
-                    </select>
-                </div>
-
-                <div class="mb-3">
-                    <label for="mensajeContacto" class="form-label">Mensaje</label>
-                    <textarea
-                        class="form-control"
-                        id="mensajeContacto"
-                        name="mensaje"
-                        rows="5"
-                        maxlength="1500"
-                        required></textarea>
-                </div>
-
-                <button type="submit" class="btn btn-primary" id="enviarContacto">
-                    Enviar mensaje
-                </button>
-
-                <p id="estadoFormulario" class="mt-3" role="status"></p>
-            </form>
-        </div>
+    <div class="col-6 col-md-3">
+      <label for="filtroPrecio" class="form-label" data-es="Precio máximo" data-en="Maximum price">Precio máximo</label>
+      <select id="filtroPrecio" class="form-select">
+        <option value="todos" data-es="Cualquier precio" data-en="Any price">Cualquier precio</option>
+        <option value="20">$20</option>
+        <option value="50">$50</option>
+        <option value="100">$100</option>
+        <option value="300">$300</option>
+        <option value="700">$700</option>
+      </select>
     </div>
-</section>
-<footer>
-    <p>© 2026 NEXUS X | Proyecto de Desarrollo Web</p>
+
+    <div class="col-12 col-md-2">
+      <button id="limpiarFiltros" class="btn btn-outline-dark w-100">
+        <i class="bi bi-arrow-counterclockwise"></i>
+        <span data-es="Limpiar" data-en="Reset">Limpiar</span>
+      </button>
+    </div>
+  </div>
+
+  <p id="contadorProductos" class="text-secondary small mb-3"></p>
+  <div id="catalogoProductos" class="row g-4"></div>
+
+  <div id="sinProductos" class="text-center py-5 d-none">
+    <i class="bi bi-search display-4"></i>
+    <h3 class="mt-3" data-es="No encontramos productos" data-en="No products found">No encontramos productos</h3>
+    <p class="text-secondary" data-es="Probá con otra búsqueda o cambiá los filtros." data-en="Try another search or change the filters.">Probá con otra búsqueda o cambiá los filtros.</p>
+  </div>
+
+  <div id="errorCatalogo" class="alert alert-warning d-none mt-4">
+    No se pudo cargar el catálogo. Revisá que el archivo <strong>datos.json</strong> esté en la misma carpeta y abrí el proyecto con Live Server.
+  </div>
+</main>
+
+<footer class="border-top py-4 mt-5">
+  <div class="container d-flex flex-wrap justify-content-between gap-2">
+    <span>© <span id="anioProductos"></span> VOLTIX</span>
+    <a href="index.html" class="text-decoration-none" data-es="Volver al inicio" data-en="Back to home">Volver al inicio</a>
+  </div>
 </footer>
 
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="script.js"></script>
+
+<script>
+$(function () {
+  let productos = [];
+
+  $("#anioProductos").text(new Date().getFullYear());
+
+  function esIngles() {
+    return localStorage.getItem("idiomaVOLTIX") === "en";
+  }
+
+  function texto(es, en) {
+    return esIngles() ? en : es;
+  }
+
+  function escapar(valor) {
+    return String(valor ?? "").replace(/[&<>"']/g, function (c) {
+      return {
+        "&": "&amp;", "<": "&lt;", ">": "&gt;",
+        '"': "&quot;", "'": "&#39;"
+      }[c];
+    });
+  }
+
+  function cargarCatalogo() {
+    $.getJSON("datos.json")
+      .done(function (datos) {
+        productos = Array.isArray(datos.productos) ? datos.productos : [];
+
+        const categorias = [...new Set(productos.map(p => p.categoria).filter(Boolean))];
+
+        categorias.forEach(function (categoria) {
+          $("#filtroCategoria").append(
+            $("<option>").val(categoria).text(categoria)
+          );
+        });
+
+        mostrarProductos();
+      })
+      .fail(function () {
+        $("#errorCatalogo").removeClass("d-none");
+      });
+  }
+
+  function mostrarProductos() {
+    const busqueda = $("#buscarProducto").val().trim().toLowerCase();
+    const categoria = $("#filtroCategoria").val();
+    const precio = $("#filtroPrecio").val();
+
+    const filtrados = productos.filter(function (p) {
+      const nombre = String(p.nombre || p.nombreProducto || p.producto || "");
+      const detalles = String(p.detalles || "");
+      const coincideTexto = (nombre + " " + detalles).toLowerCase().includes(busqueda);
+      const coincideCategoria = categoria === "todas" || p.categoria === categoria;
+      const coincidePrecio = precio === "todos" || Number(p.precio) <= Number(precio);
+
+      return coincideTexto && coincideCategoria && coincidePrecio;
+    });
+
+    $("#contadorProductos").text(
+      texto("Productos encontrados: ", "Products found: ") + filtrados.length
+    );
+
+    $("#catalogoProductos").empty();
+    $("#sinProductos").toggleClass("d-none", filtrados.length !== 0);
+
+    filtrados.forEach(function (p) {
+      const nombre = p.nombre || p.nombreProducto || p.producto || "Producto VOLTIX";
+      const precioNumero = Number(p.precio) || 0;
+      const imagen = p.imagen || "https://placehold.co/600x400?text=VOLTIX";
+      const detalles = p.detalles || "Producto tecnológico para tu día a día.";
+      const categoriaTexto = p.categoria || "Tecnología";
+
+      const tarjeta = $(`
+        <div class="col-12 col-sm-6 col-lg-4">
+          <article class="product-card h-100">
+            <img class="product-image" alt="${escapar(nombre)}"
+                 src="${escapar(imagen)}"
+                 onerror="this.onerror=null;this.src='https://placehold.co/600x400?text=VOLTIX';">
+            <div class="card-body p-3 d-flex flex-column">
+              <span class="small text-secondary mb-2">${escapar(categoriaTexto)}</span>
+              <h5 class="fw-bold">${escapar(nombre)}</h5>
+              <p class="text-secondary">${escapar(detalles)}</p>
+              <div class="mt-auto d-flex align-items-center justify-content-between gap-2">
+                <strong class="fs-5">$${precioNumero.toFixed(2)}</strong>
+                <button class="btn btn-dark btn-sm btn-detalles"
+                        data-nombre="${escapar(nombre)}"
+                        data-detalles="${escapar(detalles)}"
+                        data-precio="${precioNumero}">
+                  <i class="bi bi-info-circle"></i>
+                  ${texto("Detalles", "Details")}
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+      `);
+
+      $("#catalogoProductos").append(tarjeta);
+    });
+  }
+
+  $("#buscarProducto, #filtroCategoria, #filtroPrecio").on("input change", mostrarProductos);
+
+  $("#limpiarFiltros").on("click", function () {
+    $("#buscarProducto").val("");
+    $("#filtroCategoria").val("todas");
+    $("#filtroPrecio").val("todos");
+    mostrarProductos();
+  });
+
+  $(document).on("click", ".btn-detalles", function () {
+    const boton = $(this);
+    alert(
+      boton.attr("data-nombre") + "\n\n" +
+      boton.attr("data-detalles") + "\n\n" +
+      texto("Precio: ", "Price: ") + "$" +
+      Number(boton.attr("data-precio")).toFixed(2)
+    );
+  });
+
+  // Actualiza los textos de los botones al cambiar el idioma.
+  $("#idiomaBtn").on("click", function () {
+    setTimeout(mostrarProductos, 0);
+  });
+
+  cargarCatalogo();
+});
+</script>
+
 </body>
 </html>

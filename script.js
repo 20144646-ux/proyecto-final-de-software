@@ -1,311 +1,223 @@
 
-document.addEventListener("DOMContentLoaded", function () {
+$(document).ready(function () {
+  const $body = $("body");
+  let idiomaActual = localStorage.getItem("idiomaVOLTIX") || "es";
+  let productosVOLTIX = [];
 
-    // =====================================
-    // 1. MODO CLARO Y OSCURO
-    // =====================================
+  // AÑO ACTUAL
+  $("#anioActual").text(new Date().getFullYear());
 
-    const modoBtn = document.getElementById("modoBtn");
+  // ==========================
+  // MODO OSCURO Y CLARO
+  // ==========================
+  function actualizarBotonModo() {
+    const oscuro = $body.hasClass("modo-oscuro");
 
-    function aplicarModo(modo) {
-        const oscuro = modo === "oscuro";
-        document.body.classList.toggle("modo-oscuro", oscuro);
+    $("#modoBtn").html(
+      oscuro
+        ? '<i class="bi bi-sun"></i> <span data-es="Claro" data-en="Light">Claro</span>'
+        : '<i class="bi bi-moon-stars"></i> <span data-es="Oscuro" data-en="Dark">Oscuro</span>'
+    );
 
-        if (modoBtn) {
-            modoBtn.textContent = oscuro ? " Claro" : " Oscuro";
+    aplicarIdioma();
+  }
+
+  if (localStorage.getItem("modo") === "oscuro") {
+    $body.addClass("modo-oscuro");
+  }
+
+  actualizarBotonModo();
+
+  $("#modoBtn").on("click", function () {
+    $body.toggleClass("modo-oscuro");
+
+    localStorage.setItem(
+      "modo",
+      $body.hasClass("modo-oscuro") ? "oscuro" : "claro"
+    );
+
+    actualizarBotonModo();
+  });
+
+  // ==========================
+  // TRADUCTOR ESPAÑOL / INGLÉS
+  // ==========================
+  function aplicarIdioma() {
+    $("[data-es][data-en]").each(function () {
+      const texto = $(this).attr("data-" + idiomaActual);
+
+      if (texto !== undefined) {
+        $(this).text(texto);
+      }
+    });
+
+    $("[data-placeholder-es][data-placeholder-en]").each(function () {
+      const placeholder = $(this).attr(
+        "data-placeholder-" + idiomaActual
+      );
+
+      if (placeholder !== undefined) {
+        $(this).attr("placeholder", placeholder);
+      }
+    });
+
+    $("#idiomaBtn").text(idiomaActual === "es" ? "EN" : "ES");
+    $("html").attr("lang", idiomaActual);
+
+    // Actualizar productos para el idioma seleccionado
+    mostrarProductos();
+  }
+
+  $("#idiomaBtn").on("click", function () {
+    idiomaActual = idiomaActual === "es" ? "en" : "es";
+    localStorage.setItem("idiomaVOLTIX", idiomaActual);
+    aplicarIdioma();
+  });
+
+  // ==========================
+  // CARGAR PRODUCTOS DESDE JSON
+  // ==========================
+  function cargarProductos() {
+    $.getJSON("datos.json")
+      .done(function (datos) {
+        if (!datos || !Array.isArray(datos.productos)) {
+          mostrarErrorProductos();
+          return;
         }
 
-        try {
-            localStorage.setItem("modo", modo);
-        } catch (error) {
-            console.warn("No se pudo guardar el modo.");
-        }
+        productosVOLTIX = datos.productos;
+        mostrarProductos();
+      })
+      .fail(function () {
+        mostrarErrorProductos();
+      });
+  }
+
+  function mostrarErrorProductos() {
+    $("#productosInicio").html("");
+    $("#errorProductos").removeClass("d-none");
+  }
+
+  // ==========================
+  // MOSTRAR PRODUCTOS
+  // ==========================
+  function escaparHTML(valor) {
+    return String(valor ?? "").replace(/[&<>"']/g, function (caracter) {
+      const entidades = {
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
+      };
+
+      return entidades[caracter];
+    });
+  }
+
+  function mostrarProductos() {
+    const $contenedor = $("#productosInicio");
+
+    if (!$contenedor.length || !productosVOLTIX.length) {
+      return;
     }
 
-    let modoInicial = "claro";
+    $contenedor.empty();
+    $("#errorProductos").addClass("d-none");
 
-    try {
-        modoInicial = localStorage.getItem("modo") || "claro";
-    } catch (error) {
-        console.warn("No se pudo recuperar el modo.");
+    const productosDestacados = productosVOLTIX.slice(0, 3);
+
+    productosDestacados.forEach(function (producto) {
+      const nombre = escaparHTML(producto.nombre);
+      const descripcion = escaparHTML(producto.descripcion);
+      const categoria = escaparHTML(producto.categoria || "Tecnología");
+      const imagen = escaparHTML(producto.imagen);
+      const precio = Number(producto.precio);
+
+      const precioTexto = Number.isFinite(precio)
+        ? "$" + precio.toLocaleString("en-US", {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+          })
+        : "Consultar precio";
+
+      const textoBoton =
+        idiomaActual === "es" ? "Ver producto" : "View product";
+
+      const textoAlternativo =
+        idiomaActual === "es" ? "Imagen de " : "Image of ";
+
+      const tarjeta = `
+        <div class="col-sm-6 col-lg-4">
+          <article class="product-card h-100">
+            <img
+              src="${imagen}"
+              alt="${textoAlternativo}${nombre}"
+              loading="lazy"
+              onerror="this.onerror=null;this.src='https://placehold.co/600x400/f0ebe5/292929?text=VOLTIX+Product'">
+
+            <div class="card-body">
+              <span class="product-category">${categoria}</span>
+              <h3 class="card-title">${nombre}</h3>
+              <p class="card-text">${descripcion}</p>
+              <p class="price">${precioTexto}</p>
+              <a href="producto.html" class="btn btn-outline-primary w-100">
+                ${textoBoton}
+              </a>
+            </div>
+          </article>
+        </div>
+      `;
+
+      $contenedor.append(tarjeta);
+    });
+  }
+
+  // ==========================
+  // FORMULARIO DE CONTACTO
+  // ==========================
+  $("#contactoForm").on("submit", function (evento) {
+    evento.preventDefault();
+
+    const nombre = $("#nombreContacto").val().trim();
+    const correo = $("#correoContacto").val().trim();
+    const mensaje = $("#mensajeContacto").val().trim();
+
+    if (!nombre || !correo || !mensaje) {
+      mostrarEstadoContacto(
+        idiomaActual === "es"
+          ? "Completa todos los campos."
+          : "Please complete all fields."
+      );
+      return;
     }
 
-    aplicarModo(modoInicial);
+    const asunto = encodeURIComponent("Mensaje para VOLTIX");
+    const cuerpo = encodeURIComponent(
+      "Nombre: " + nombre +
+      "\nCorreo: " + correo +
+      "\n\nMensaje:\n" + mensaje
+    );
 
-    if (modoBtn) {
-        modoBtn.addEventListener("click", function () {
-            aplicarModo(
-                document.body.classList.contains("modo-oscuro")
-                    ? "claro"
-                    : "oscuro"
-            );
-        });
-    }
+    const enlaceCorreo =
+      "mailto:?subject=" + asunto + "&body=" + cuerpo;
 
-    // =====================================
-    // 2. ANIMACIONES SUAVES
-    // =====================================
+    mostrarEstadoContacto(
+      idiomaActual === "es"
+        ? "Se abrirá tu aplicación de correo para preparar el mensaje. Debes elegir el destinatario y enviarlo."
+        : "Your email app will open to prepare the message. Choose a recipient and send it."
+    );
 
-    const elementos = document.querySelectorAll(".reveal");
+    window.location.href = enlaceCorreo;
+  });
 
-    if ("IntersectionObserver" in window) {
-        const observador = new IntersectionObserver(function (entradas) {
-            entradas.forEach(function (entrada) {
-                if (entrada.isIntersecting) {
-                    entrada.target.classList.add("visible");
-                    observador.unobserve(entrada.target);
-                }
-            });
-        }, { threshold: 0.1 });
+  function mostrarEstadoContacto(mensaje) {
+    $("#contactoEstado").text(mensaje);
+  }
 
-        elementos.forEach(function (elemento) {
-            observador.observe(elemento);
-        });
-    } else {
-        elementos.forEach(function (elemento) {
-            elemento.classList.add("visible");
-        });
-    }
-
-    // =====================================
-    // 3. FORMULARIO DE CONTACTO
-    // =====================================
-
-    const formulario = document.getElementById("formContacto");
-
-    if (formulario) {
-        formulario.addEventListener("submit", async function (evento) {
-            evento.preventDefault();
-
-            const boton = document.getElementById("enviarContacto");
-            const estado = document.getElementById("estadoFormulario");
-
-            const nombre = document.getElementById("nombre")?.value.trim() || "";
-            const correo = document.getElementById("correo")?.value.trim() || "";
-            const motivo = document.getElementById("motivo")?.value || "";
-            const mensaje = document.getElementById("mensajeContacto")?.value.trim() || "";
-
-            if (!estado || !boton) return;
-
-            if (!nombre || !correo || !motivo || !mensaje) {
-                estado.textContent = "Completa todos los campos.";
-                return;
-            }
-
-            boton.disabled = true;
-            estado.textContent = "Enviando mensaje...";
-
-            try {
-                const respuesta = await fetch("/api/contacto", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify({
-                        nombre,
-                        correo,
-                        motivo,
-                        mensaje
-                    })
-                });
-
-                const resultado = await respuesta.json();
-
-                if (!respuesta.ok) {
-                    throw new Error(
-                        resultado.mensaje || "No se pudo enviar el mensaje."
-                    );
-                }
-
-                estado.textContent = "✅ ¡Enviado correctamente!";
-                formulario.reset();
-
-            } catch (error) {
-                console.error("Error al enviar el formulario:", error);
-                estado.textContent =
-                    error.message ||
-                    "No se pudo enviar. Comprueba que el servidor esté funcionando.";
-            } finally {
-                boton.disabled = false;
-            }
-        });
-    }
-
-    // =====================================
-    // 4. EVALUACIÓN INTERACTIVA
-    // =====================================
-
-    const evaluarBtn = document.getElementById("evaluarBtn");
-
-    if (evaluarBtn) {
-        evaluarBtn.addEventListener("click", function () {
-            const preguntas = document.querySelectorAll("[data-pregunta]");
-            const resultado = document.getElementById("resultado");
-
-            if (!resultado || preguntas.length === 0) return;
-
-            let puntos = 0;
-            let contestadas = 0;
-
-            preguntas.forEach(function (pregunta) {
-                const respuesta = pregunta.querySelector(
-                    'input[type="radio"]:checked'
-                );
-
-                if (respuesta) {
-                    contestadas++;
-
-                    if (respuesta.dataset.correcta === "true") {
-                        puntos++;
-                    }
-                }
-            });
-
-            if (contestadas < preguntas.length) {
-                resultado.textContent =
-                    "Responde todas las preguntas antes de evaluar.";
-                return;
-            }
-
-            resultado.textContent =
-                "Tu resultado: " + puntos + " de " +
-                preguntas.length + " respuestas correctas.";
-        });
-    }
-
-    // =====================================
-    // 5. TRADUCTOR ESPAÑOL - INGLÉS
-    // =====================================
-
-    const idiomaBtn = document.getElementById("idiomaBtn");
-
-    const traducciones = {
-        etiqueta: {
-            es: "TECNOLOGÍA PARA EL FUTURO",
-            en: "TECHNOLOGY FOR THE FUTURE"
-        },
-        titulo: {
-            es: "CREA EL FUTURO DIGITAL",
-            en: "CREATE THE DIGITAL FUTURE"
-        },
-        descripcion: {
-            es: "Descubre herramientas y tecnologías para crear experiencias digitales increíbles.",
-            en: "Discover tools and technologies to create amazing digital experiences."
-        },
-        conocer: {
-            es: "CONOCER MÁS",
-            en: "LEARN MORE"
-        },
-        evaluacion: {
-            es: "Evaluación interactiva",
-            en: "Interactive quiz"
-        },
-        aprende: {
-            es: "Aprende sobre desarrollo web",
-            en: "Learn about web development"
-        },
-        futuro: {
-            es: "El futuro comienza aquí",
-            en: "The future starts here"
-        },
-        programa: {
-            es: "Programa, crea e innova",
-            en: "Code, create and innovate"
-        },
-        tecnologias: {
-            es: "Tecnologías web",
-            en: "Web technologies"
-        },
-        explora: {
-            es: "Explora nuestras tecnologías",
-            en: "Explore our technologies"
-        },
-        herramientas: {
-            es: "Herramientas digitales",
-            en: "Digital tools"
-        },
-        queEs: {
-            es: "¿Qué es?",
-            en: "What is it?"
-        },
-        idea: {
-            es: "Aprende algo nuevo",
-            en: "Learn something new"
-        },
-        aprendizaje: {
-            es: "Aprendizaje",
-            en: "Learning"
-        },
-        infoAprendizaje: {
-            es: "Aprende paso a paso con nuestros recursos.",
-            en: "Learn step by step with our resources."
-        },
-        practica: {
-            es: "Practica tus conocimientos",
-            en: "Practice your knowledge"
-        },
-        infoPractica: {
-            es: "Pon a prueba lo que has aprendido.",
-            en: "Test what you have learned."
-        },
-        innovacion: {
-            es: "Innovación digital",
-            en: "Digital innovation"
-        },
-        infoInnovacion: {
-            es: "Descubre nuevas formas de usar la tecnología.",
-            en: "Discover new ways to use technology."
-        },
-        pie: {
-            es: "Todos los derechos reservados.",
-            en: "All rights reserved."
-        }
-    };
-
-    let idiomaActual = "es";
-
-    try {
-        idiomaActual = localStorage.getItem("idiomaNexus") || "es";
-    } catch (error) {
-        console.warn("No se pudo recuperar el idioma.");
-    }
-
-    function cambiarIdioma(idioma) {
-        if (!traducciones || !["es", "en"].includes(idioma)) {
-            return;
-        }
-
-        idiomaActual = idioma;
-
-        try {
-            localStorage.setItem("idiomaNexus", idioma);
-        } catch (error) {
-            console.warn("No se pudo guardar el idioma.");
-        }
-
-        document.querySelectorAll("[data-i18n]").forEach(function (elemento) {
-            const clave = elemento.dataset.i18n;
-            const traduccion = traducciones[clave];
-
-            if (traduccion && traduccion[idioma] !== undefined) {
-                elemento.textContent = traduccion[idioma];
-            }
-        });
-
-        document.documentElement.lang = idioma;
-
-        if (idiomaBtn) {
-            idiomaBtn.textContent =
-                idioma === "es" ? "🌐 English" : "🌐 Español";
-        }
-    }
-
-    if (idiomaBtn) {
-        idiomaBtn.addEventListener("click", function () {
-            cambiarIdioma(idiomaActual === "es" ? "en" : "es");
-        });
-    }
-
-    cambiarIdioma(idiomaActual);
-
+  // ==========================
+  // INICIAR
+  // ==========================
+  cargarProductos();
+  aplicarIdioma();
 });

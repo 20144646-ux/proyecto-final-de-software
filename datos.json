@@ -1,5 +1,116 @@
+
 {
-    "producto": "NEXUS X es una plataforma digital educativa para estudiantes.",
-    "publico": "Estudiantes de secundaria y bachillerato interesados en tecnología.",
-    "propuesta": "Facilitar el aprendizaje mediante herramientas y recursos digitales."
+  "producto": "VOLTIX es una tienda digital de productos tecnológicos.",
+  "publico": "Estudiantes, aficionados a la tecnología y personas interesadas en accesorios electrónicos.",
+  "propuesta": "Ofrecer productos tecnológicos con precios visibles, información clara y una experiencia de compra sencilla.",
+  "productos": [
+    {
+      "id": 1,
+      "nombre": "Laptop Lenovo IdeaPad",
+      "categoria": "Computadoras",
+      "descripcion": "Laptop ideal para estudiar, trabajar y realizar tareas.",
+      "precio": 549.99,
+      "imagen": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=800&q=85",
+      "detalles": ["8 GB de RAM", "256 GB SSD", "Pantalla de 15.6 pulgadas"]
+    },
+    {
+      "id": 2,
+      "nombre": "Laptop HP Pavilion",
+      "categoria": "Computadoras",
+      "descripcion": "Equipo portátil para productividad y entretenimiento.",
+      "precio": 649.99,
+      "imagen": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=800&q=85",
+      "detalles": ["16 GB de RAM", "512 GB SSD", "Pantalla Full HD"]
+    },
+    {
+      "id": 3,
+      "nombre": "Teclado mecánico RGB",
+      "categoria": "Accesorios",
+      "descripcion": "Teclado con iluminación para escribir y jugar.",
+      "precio": 49.99,
+      "imagen": "https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=800&q=85",
+      "detalles": ["Iluminación RGB", "Conexión USB", "Diseño compacto"]
+    },
+    {
+      "id": 4,
+      "nombre": "Mouse inalámbrico",
+      "categoria": "Accesorios",
+      "descripcion": "Mouse cómodo para estudiar, trabajar o navegar.",
+      "precio": 19.99,
+      "imagen": "https://images.unsplash.com/photo-1527814050087-3793815479db?auto=format&fit=crop&w=800&q=85",
+      "detalles": ["Conexión inalámbrica", "Diseño ergonómico", "Sensor óptico"]
+    },
+    {
+      "id": 5,
+      "nombre": "Audífonos Bluetooth",
+      "categoria": "Audio",
+      "descripcion": "Audífonos inalámbricos para música y llamadas.",
+      "precio": 34.99,
+      "imagen": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=85",
+      "detalles": ["Conexión Bluetooth", "Diseño moderno", "Batería recargable"]
+    },
+    {
+      "id": 6,
+      "nombre": "Bocina portátil",
+      "categoria": "Audio",
+      "descripcion": "Bocina compacta para disfrutar de tu música.",
+      "precio": 29.99,
+      "imagen": "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=800&q=85",
+      "detalles": ["Bluetooth", "Tamaño compacto", "Batería recargable"]
+    },
+    {
+      "id": 7,
+      "nombre": "Monitor Full HD",
+      "categoria": "Computadoras",
+      "descripcion": "Monitor para mejorar tu espacio de estudio o trabajo.",
+      "precio": 159.99,
+      "imagen": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=800&q=85",
+      "detalles": ["Pantalla de 24 pulgadas", "Resolución Full HD", "Entrada HDMI"]
+    },
+    {
+      "id": 8,
+      "nombre": "Memoria USB de 64 GB",
+      "categoria": "Almacenamiento",
+      "descripcion": "Guarda y transporta tus documentos y archivos.",
+      "precio": 12.99,
+      "imagen": "https://images.unsplash.com/photo-1531492746076-161ca9bcad58?auto=format&fit=crop&w=800&q=85",
+      "detalles": ["Capacidad de 64 GB", "Conexión USB", "Diseño portátil"]
+    },
+    {
+      "id": 9,
+      "nombre": "SSD externo de 1 TB",
+      "categoria": "Almacenamiento",
+      "descripcion": "Unidad externa para guardar tus proyectos y archivos.",
+      "precio": 89.99,
+      "imagen": "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&fit=crop&w=800&q=85",
+      "detalles": ["Capacidad de 1 TB", "Conexión USB", "Fácil de transportar"]
+    },
+    {
+      "id": 10,
+      "nombre": "Webcam Full HD",
+      "categoria": "Accesorios",
+      "descripcion": "Cámara para clases virtuales y videollamadas.",
+      "precio": 39.99,
+      "imagen": "https://images.unsplash.com/photo-1587826080692-f439cd0b70da?auto=format&fit=crop&w=800&q=85",
+      "detalles": ["Resolución Full HD", "Micrófono integrado", "Conexión USB"]
+    },
+    {
+      "id": 11,
+      "nombre": "Smartphone Samsung",
+      "categoria": "Celulares",
+      "descripcion": "Teléfono inteligente para comunicación y aplicaciones.",
+      "precio": 249.99,
+      "imagen": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=800&q=85",
+      "detalles": ["Pantalla táctil", "Cámara integrada", "Conectividad inalámbrica"]
+    },
+    {
+      "id": 12,
+      "nombre": "Cargador USB-C",
+      "categoria": "Accesorios",
+      "descripcion": "Cargador compacto para dispositivos compatibles.",
+      "precio": 17.99,
+      "imagen": "https://images.unsplash.com/photo-1583863788434-e58a36330cf0?auto=format&fit=crop&w=800&q=85",
+      "detalles": ["Conexión USB-C", "Diseño compacto", "Para dispositivos compatibles"]
+    }
+  ]
 }

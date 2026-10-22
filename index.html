@@ -2,189 +2,399 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEXUS X | Inicio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="VOLTIX: tienda tecnológica y espacio educativo para aprender sobre desarrollo web.">
+  <title>VOLTIX | Tecnología y aprendizaje</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<!-- MENÚ -->
-<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+  <!-- NAVEGACIÓN -->
+  <nav class="navbar navbar-expand-lg sticky-top">
     <div class="container">
-        <a class="navbar-brand fw-bold" href="index.html">
-            <span class="logo">NX</span> NEXUS X
-        </a>
+      <a class="navbar-brand" href="index.html">VOLT<span>IX</span></a>
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-            data-bs-target="#menu" aria-label="Abrir menú">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+        data-bs-target="#menuVOLTIX" aria-controls="menuVOLTIX"
+        aria-expanded="false" aria-label="Abrir menú">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-        <div class="collapse navbar-collapse" id="menu">
-            <ul class="navbar-nav ms-auto align-items-lg-center">
-                <li class="nav-item"><a class="nav-link active" href="index.html">Inicio</a></li>
-                <li class="nav-item"><a class="nav-link" href="producto.html">Producto</a></li>
-                <li class="nav-item"><a class="nav-link" href="javascript.html">JavaScript</a></li>
-                <li class="nav-item"><a class="nav-link" href="jquery.html">jQuery</a></li>
-                <li class="nav-item"><a class="nav-link" href="json.html">JSON</a></li>
-                <li class="nav-item"><a class="nav-link" href="hosting.html">Hosting</a></li>
-                <li class="nav-item"><a class="nav-link" href="dominios.html">Dominios</a></li>
-                <li class="nav-item"><a class="nav-link" href="evaluacion.html">Evaluación</a></li>
-                <li class="nav-item"><a class="nav-link" href="herramientas-google.html">Herramientas Google</a></li>
-
-                <li class="nav-item ms-lg-2 mb-2 mb-lg-0">
-                    <button id="modoBtn" class="btn btn-outline-light btn-sm" type="button">
-                        🌙 Modo oscuro
-                    </button>
-                </li>
-
-                <li class="nav-item ms-lg-2">
-                    <button id="idiomaBtn" class="btn btn-info btn-sm" type="button">
-                        🇺🇸 English
-                    </button>
-                </li>
+      <div class="collapse navbar-collapse" id="menuVOLTIX">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+          <li class="nav-item">
+            <a class="nav-link active" href="index.html" data-es="Inicio" data-en="Home">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="producto.html" data-es="Productos" data-en="Products">Productos</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false"
+              data-es="Aprendizaje web" data-en="Web learning">Aprendizaje web</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="javascript.html">JavaScript</a></li>
+              <li><a class="dropdown-item" href="jquery.html">jQuery</a></li>
+              <li><a class="dropdown-item" href="json.html">JSON</a></li>
+              <li><a class="dropdown-item" href="hosting.html" data-es="Web Hosting" data-en="Web Hosting">Web Hosting</a></li>
+              <li><a class="dropdown-item" href="dominios.html" data-es="Dominios" data-en="Domains">Dominios</a></li>
             </ul>
-        </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="herramientas-google.html"
+              data-es="Herramientas Google" data-en="Google tools">Herramientas Google</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="evaluacion.html"
+              data-es="Evaluación" data-en="Quiz">Evaluación</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contacto" data-es="Contacto" data-en="Contact">Contacto</a>
+          </li>
+          <li class="nav-item ms-lg-2">
+            <a class="btn btn-outline-primary btn-sm" href="login.html"
+              data-es="Iniciar sesión" data-en="Log in">Iniciar sesión</a>
+          </li>
+          <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+            <button id="idiomaBtn" class="btn btn-outline-secondary btn-sm" type="button"
+              aria-label="Cambiar idioma">EN</button>
+          </li>
+          <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+            <button id="modoBtn" class="btn btn-outline-secondary btn-sm" type="button">
+              <i class="bi bi-moon-stars"></i> <span data-es="Oscuro" data-en="Dark">Oscuro</span>
+            </button>
+          </li>
+        </ul>
+      </div>
     </div>
-</nav>
+  </nav>
 
-<!-- PORTADA -->
-<header class="hero">
+  <!-- PORTADA -->
+  <header class="hero">
     <div class="container">
-        <div class="row align-items-center g-4">
-
-            <div class="col-lg-6 reveal">
-                <span class="badge text-bg-primary mb-3" data-i18n="etiqueta">PROYECTO EDUCATIVO</span>
-
-                <h1 data-i18n="titulo">Aprende tecnología de una forma diferente.</h1>
-
-                <p data-i18n="descripcion">
-                    NEXUS X es una plataforma educativa creada para estudiantes
-                    que quieren aprender sobre desarrollo web, programación y nuevas tecnologías.
-                </p>
-
-                <div class="d-flex gap-2 flex-wrap">
-                    <a href="producto.html" class="btn btn-primary btn-lg" data-i18n="conocer">
-                        Conocer NEXUS X
-                    </a>
-                    <a href="evaluacion.html" class="btn btn-outline-light btn-lg" data-i18n="evaluacion">
-                        Probar evaluación
-                    </a>
-                </div>
-            </div>
-
-            <!-- CARRUSEL -->
-            <div class="col-lg-6 reveal">
-                <div id="carruselNexus"
-                    class="carousel slide carousel-fade shadow-lg"
-                    data-bs-ride="carousel">
-
-                    <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#carruselNexus"
-                            data-bs-slide-to="0" class="active" aria-label="Imagen 1"></button>
-                        <button type="button" data-bs-target="#carruselNexus"
-                            data-bs-slide-to="1" aria-label="Imagen 2"></button>
-                        <button type="button" data-bs-target="#carruselNexus"
-                            data-bs-slide-to="2" aria-label="Imagen 3"></button>
-                    </div>
-
-                    <div class="carousel-inner rounded-4">
-                        <div class="carousel-item active">
-                            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1000&q=80"
-                                class="d-block w-100" alt="Estudiante usando computadora">
-                            <div class="carousel-caption">
-                                <h5 data-i18n="aprende">Aprende</h5>
-                                <p data-i18n="futuro">Convierte la tecnología en una herramienta para tu futuro.</p>
-                            </div>
-                        </div>
-
-                        <div class="carousel-item">
-                            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1000&q=80"
-                                class="d-block w-100" alt="Programación">
-                            <div class="carousel-caption">
-                                <h5 data-i18n="programa">Programa</h5>
-                                <p data-i18n="tecnologias">Conoce tecnologías utilizadas en el desarrollo web.</p>
-                            </div>
-                        </div>
-
-                        <div class="carousel-item">
-                            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1000&q=80"
-                                class="d-block w-100" alt="Tecnología">
-                            <div class="carousel-caption">
-                                <h5 data-i18n="explora">Explora</h5>
-                                <p data-i18n="herramientas">Descubre nuevas herramientas digitales e inteligencia artificial.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <button class="carousel-control-prev" type="button"
-                        data-bs-target="#carruselNexus" data-bs-slide="prev"
-                        aria-label="Anterior">
-                        <span class="carousel-control-prev-icon"></span>
-                    </button>
-
-                    <button class="carousel-control-next" type="button"
-                        data-bs-target="#carruselNexus" data-bs-slide="next"
-                        aria-label="Siguiente">
-                        <span class="carousel-control-next-icon"></span>
-                    </button>
-                </div>
-            </div>
-
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6">
+          <p class="text-uppercase fw-bold mb-2" style="color:var(--color-principal)"
+            data-es="TECNOLOGÍA · INNOVACIÓN · APRENDIZAJE"
+            data-en="TECHNOLOGY · INNOVATION · LEARNING">
+            TECNOLOGÍA · INNOVACIÓN · APRENDIZAJE
+          </p>
+          <h1 data-es="Descubre la tecnología que mueve tu mundo."
+              data-en="Discover the technology that moves your world.">
+            Descubre la tecnología que mueve tu mundo.
+          </h1>
+          <p class="mt-3"
+             data-es="Explora productos tecnológicos y aprende cómo funcionan las herramientas que hacen posible la web."
+             data-en="Explore technology products and learn how the tools that power the web work.">
+            Explora productos tecnológicos y aprende cómo funcionan las herramientas que hacen posible la web.
+          </p>
+          <div class="d-flex flex-wrap gap-2 mt-4">
+            <a href="producto.html" class="btn btn-primary btn-lg">
+              <i class="bi bi-bag"></i>
+              <span data-es="Explorar productos" data-en="Explore products">Explorar productos</span>
+            </a>
+            <a href="#aprendizaje" class="btn btn-outline-secondary btn-lg"
+              data-es="Aprender más" data-en="Learn more">Aprender más</a>
+          </div>
+          <div class="d-flex flex-wrap gap-4 mt-4 small">
+            <span><i class="bi bi-check-circle me-1" style="color:var(--color-principal)"></i>
+              <span data-es="Catálogo tecnológico" data-en="Technology catalog">Catálogo tecnológico</span>
+            </span>
+            <span><i class="bi bi-code-slash me-1" style="color:var(--color-principal)"></i>
+              <span data-es="Aprendizaje web" data-en="Web learning">Aprendizaje web</span>
+            </span>
+          </div>
         </div>
+        <div class="col-lg-6">
+          <div id="carruselVOLTIX" class="carousel slide carousel-fade shadow-sm"
+            data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carruselVOLTIX" data-bs-slide-to="0"
+                class="active" aria-current="true" aria-label="Imagen 1"></button>
+              <button type="button" data-bs-target="#carruselVOLTIX" data-bs-slide-to="1"
+                aria-label="Imagen 2"></button>
+              <button type="button" data-bs-target="#carruselVOLTIX" data-bs-slide-to="2"
+                aria-label="Imagen 3"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=1000&q=85"
+                  class="d-block w-100" alt="Laptop para estudiar y trabajar"
+                  style="height:390px;object-fit:cover"
+                  onerror="this.onerror=null;this.src='https://placehold.co/1000x650/f0ebe5/292929?text=VOLTIX+Technology'">
+                <div class="carousel-caption text-start">
+                  <h5 data-es="Tecnología para tus ideas" data-en="Technology for your ideas">Tecnología para tus ideas</h5>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1000&q=85"
+                  class="d-block w-100" alt="Personas trabajando con tecnología"
+                  style="height:390px;object-fit:cover"
+                  onerror="this.onerror=null;this.src='https://placehold.co/1000x650/f0ebe5/292929?text=Learn+with+VOLTIX'">
+                <div class="carousel-caption text-start">
+                  <h5 data-es="Aprende y crea" data-en="Learn and create">Aprende y crea</h5>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1000&q=85"
+                  class="d-block w-100" alt="Componentes electrónicos"
+                  style="height:390px;object-fit:cover"
+                  onerror="this.onerror=null;this.src='https://placehold.co/1000x650/f0ebe5/292929?text=Explore+technology'">
+                <div class="carousel-caption text-start">
+                  <h5 data-es="El futuro empieza aquí" data-en="The future starts here">El futuro empieza aquí</h5>
+                </div>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carruselVOLTIX"
+              data-bs-slide="prev" aria-label="Anterior">
+              <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carruselVOLTIX"
+              data-bs-slide="next" aria-label="Siguiente">
+              <span class="carousel-control-next-icon"></span>
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
-</header>
+  </header>
 
-<!-- INFORMACIÓN -->
-<section class="section">
+  <!-- PRODUCTOS DESTACADOS -->
+  <section id="destacados">
     <div class="container">
-
-        <div class="section-title reveal">
-            <span data-i18n="queEs">¿QUÉ ES?</span>
-            <h2>NEXUS X</h2>
-            <p data-i18n="idea">Una idea pensada para estudiantes que quieren aprender tecnología.</p>
+      <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-4">
+        <div>
+          <p class="text-uppercase fw-bold mb-1" style="color:var(--color-principal)"
+            data-es="SELECCIÓN VOLTIX" data-en="VOLTIX SELECTION">SELECCIÓN VOLTIX</p>
+          <h2 class="section-title mb-1" data-es="Productos destacados" data-en="Featured products">Productos destacados</h2>
+          <p class="mb-0" data-es="Conoce algunos productos de nuestro catálogo." data-en="Discover some products from our catalog.">
+            Conoce algunos productos de nuestro catálogo.
+          </p>
         </div>
+        <a href="producto.html" class="btn btn-outline-primary">
+          <span data-es="Ver todo el catálogo" data-en="View full catalog">Ver todo el catálogo</span>
+          <i class="bi bi-arrow-right ms-1"></i>
+        </a>
+      </div>
 
-        <div class="row g-4">
-            <div class="col-md-4 reveal">
-                <div class="info-card">
-                    <i class="bi bi-lightbulb"></i>
-                    <h3 data-i18n="aprendizaje">Aprendizaje</h3>
-                    <p data-i18n="infoAprendizaje">Información sencilla para comprender conceptos de desarrollo web.</p>
-                </div>
-            </div>
-
-            <div class="col-md-4 reveal">
-                <div class="info-card">
-                    <i class="bi bi-code-slash"></i>
-                    <h3 data-i18n="practica">Práctica</h3>
-                    <p data-i18n="infoPractica">Ejemplos interactivos para aprender haciendo y no solamente leyendo.</p>
-                </div>
-            </div>
-
-            <div class="col-md-4 reveal">
-                <div class="info-card">
-                    <i class="bi bi-stars"></i>
-                    <h3 data-i18n="innovacion">Innovación</h3>
-                    <p data-i18n="infoInnovacion">Incluye información sobre inteligencia artificial y herramientas modernas.</p>
-                </div>
-            </div>
+      <div id="productosInicio" class="row g-4">
+        <div class="col-12 text-center py-5">
+          <div class="spinner-border" role="status" aria-label="Cargando"></div>
+          <p class="mt-2" data-es="Cargando productos..." data-en="Loading products...">Cargando productos...</p>
         </div>
+      </div>
+      <p id="errorProductos" class="alert alert-warning mt-3 d-none" role="status"
+        data-es="No se pudieron cargar los productos. Comprueba que datos.json esté en la misma carpeta y abre la página con Live Server."
+        data-en="Products could not be loaded. Make sure datos.json is in the same folder and open the page with Live Server.">
+        No se pudieron cargar los productos. Comprueba que datos.json esté en la misma carpeta y abre la página con Live Server.
+      </p>
     </div>
-</section>
+  </section>
 
-<!-- PIE DE PÁGINA -->
-<footer>
-    <p data-i18n="pie">© 2026 NEXUS X | Proyecto de Desarrollo Web</p>
-</footer>
+  <!-- APRENDIZAJE -->
+  <section id="aprendizaje" style="background:var(--color-superficie);border-top:1px solid var(--color-borde);border-bottom:1px solid var(--color-borde)">
+    <div class="container">
+      <div class="text-center mb-5">
+        <p class="text-uppercase fw-bold mb-1" style="color:var(--color-principal)"
+          data-es="APRENDE ALGO NUEVO" data-en="LEARN SOMETHING NEW">APRENDE ALGO NUEVO</p>
+        <h2 class="section-title" data-es="Explora el mundo del desarrollo web" data-en="Explore the world of web development">
+          Explora el mundo del desarrollo web
+        </h2>
+        <p class="section-description"
+          data-es="Consulta nuestras secciones educativas y descubre las tecnologías que se utilizan para crear sitios web."
+          data-en="Explore our educational sections and discover the technologies used to build websites.">
+          Consulta nuestras secciones educativas y descubre las tecnologías que se utilizan para crear sitios web.
+        </p>
+      </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="script.js"></script>
+      <div class="row g-4">
+        <div class="col-sm-6 col-lg-4">
+          <a href="javascript.html" class="text-reset">
+            <article class="info-card">
+              <i class="bi bi-filetype-js fs-1" style="color:var(--color-principal)"></i>
+              <h3 class="mt-3">JavaScript</h3>
+              <p data-es="Aprende cómo agregar interactividad y funciones a las páginas web."
+                 data-en="Learn how to add interactivity and features to web pages.">
+                Aprende cómo agregar interactividad y funciones a las páginas web.
+              </p>
+              <span class="fw-bold" data-es="Explorar tema →" data-en="Explore topic →">Explorar tema →</span>
+            </article>
+          </a>
+        </div>
+        <div class="col-sm-6 col-lg-4">
+          <a href="jquery.html" class="text-reset">
+            <article class="info-card">
+              <i class="bi bi-code-square fs-1" style="color:var(--color-principal)"></i>
+              <h3 class="mt-3">jQuery</h3>
+              <p data-es="Conoce una biblioteca que simplifica tareas comunes de JavaScript."
+                 data-en="Discover a library that simplifies common JavaScript tasks.">
+                Conoce una biblioteca que simplifica tareas comunes de JavaScript.
+              </p>
+              <span class="fw-bold" data-es="Explorar tema →" data-en="Explore topic →">Explorar tema →</span>
+            </article>
+          </a>
+        </div>
+        <div class="col-sm-6 col-lg-4">
+          <a href="json.html" class="text-reset">
+            <article class="info-card">
+              <i class="bi bi-braces fs-1" style="color:var(--color-principal)"></i>
+              <h3 class="mt-3">JSON</h3>
+              <p data-es="Descubre cómo organizar e intercambiar información estructurada."
+                 data-en="Discover how to organize and exchange structured information.">
+                Descubre cómo organizar e intercambiar información estructurada.
+              </p>
+              <span class="fw-bold" data-es="Explorar tema →" data-en="Explore topic →">Explorar tema →</span>
+            </article>
+          </a>
+        </div>
+        <div class="col-sm-6 col-lg-4">
+          <a href="hosting.html" class="text-reset">
+            <article class="info-card">
+              <i class="bi bi-cloud-arrow-up fs-1" style="color:var(--color-principal)"></i>
+              <h3 class="mt-3">Web Hosting</h3>
+              <p data-es="Aprende dónde se almacenan los archivos de un sitio web."
+                 data-en="Learn where a website's files are stored.">
+                Aprende dónde se almacenan los archivos de un sitio web.
+              </p>
+              <span class="fw-bold" data-es="Explorar tema →" data-en="Explore topic →">Explorar tema →</span>
+            </article>
+          </a>
+        </div>
+        <div class="col-sm-6 col-lg-4">
+          <a href="dominios.html" class="text-reset">
+            <article class="info-card">
+              <i class="bi bi-globe2 fs-1" style="color:var(--color-principal)"></i>
+              <h3 data-es="Dominios" data-en="Domains" class="mt-3">Dominios</h3>
+              <p data-es="Conoce las direcciones que ayudan a encontrar los sitios web."
+                 data-en="Learn about the addresses people use to find websites.">
+                Conoce las direcciones que ayudan a encontrar los sitios web.
+              </p>
+              <span class="fw-bold" data-es="Explorar tema →" data-en="Explore topic →">Explorar tema →</span>
+            </article>
+          </a>
+        </div>
+        <div class="col-sm-6 col-lg-4">
+          <a href="evaluacion.html" class="text-reset">
+            <article class="info-card">
+              <i class="bi bi-clipboard-check fs-1" style="color:var(--color-principal)"></i>
+              <h3 data-es="Evaluación" data-en="Quiz" class="mt-3">Evaluación</h3>
+              <p data-es="Pon a prueba lo aprendido con nuestro cuestionario."
+                 data-en="Test what you have learned with our quiz.">
+                Pon a prueba lo aprendido con nuestro cuestionario.
+              </p>
+              <span class="fw-bold" data-es="Comenzar →" data-en="Start →">Comenzar →</span>
+            </article>
+          </a>
+        </div>
+      </div>
 
+      <div class="text-center mt-4">
+        <a href="herramientas-google.html" class="btn btn-primary">
+          <i class="bi bi-google me-2"></i>
+          <span data-es="Ver herramientas de Google" data-en="Explore Google tools">Ver herramientas de Google</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE VOLTIX -->
+  <section id="nosotros">
+    <div class="container">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-6">
+          <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1000&q=85"
+            alt="Personas colaborando en tecnología" class="img-fluid rounded-3 shadow-sm"
+            onerror="this.onerror=null;this.src='https://placehold.co/900x600/f0ebe5/292929?text=VOLTIX'">
+        </div>
+        <div class="col-lg-6">
+          <p class="text-uppercase fw-bold mb-1" style="color:var(--color-principal)"
+            data-es="NUESTRA PROPUESTA" data-en="OUR PURPOSE">NUESTRA PROPUESTA</p>
+          <h2 class="section-title" data-es="Tecnología para aprender y crecer" data-en="Technology to learn and grow">
+            Tecnología para aprender y crecer
+          </h2>
+          <p data-es="VOLTIX combina un catálogo demostrativo de productos tecnológicos con recursos educativos sobre desarrollo web. Su objetivo es ofrecer un espacio sencillo donde explorar tecnología y aprender."
+             data-en="VOLTIX combines a sample technology catalog with educational web development resources. Its goal is to provide a simple place to explore technology and learn.">
+            VOLTIX combina un catálogo demostrativo de productos tecnológicos con recursos educativos sobre desarrollo web. Su objetivo es ofrecer un espacio sencillo donde explorar tecnología y aprender.
+          </p>
+          <a href="producto.html" class="btn btn-primary mt-2"
+            data-es="Explorar VOLTIX" data-en="Explore VOLTIX">Explorar VOLTIX</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto" style="background:var(--color-superficie);border-top:1px solid var(--color-borde)">
+    <div class="container">
+      <div class="text-center mb-4">
+        <p class="text-uppercase fw-bold mb-1" style="color:var(--color-principal)"
+          data-es="HABLEMOS" data-en="LET'S TALK">HABLEMOS</p>
+        <h2 class="section-title" data-es="Contacto" data-en="Contact">Contacto</h2>
+        <p data-es="¿Tienes alguna consulta? Escríbenos." data-en="Have a question? Get in touch.">
+          ¿Tienes alguna consulta? Escríbenos.
+        </p>
+      </div>
+      <div class="contact-form">
+        <form id="contactoForm">
+          <div class="mb-3">
+            <label for="nombreContacto" data-es="Nombre" data-en="Name">Nombre</label>
+            <input class="form-control" type="text" id="nombreContacto" name="nombre"
+              autocomplete="name" required maxlength="100"
+              placeholder="Tu nombre"
+              data-placeholder-es="Tu nombre" data-placeholder-en="Your name">
+          </div>
+          <div class="mb-3">
+            <label for="correoContacto" data-es="Correo electrónico" data-en="Email address">Correo electrónico</label>
+            <input class="form-control" type="email" id="correoContacto" name="correo"
+              autocomplete="email" required maxlength="150"
+              placeholder="tucorreo@ejemplo.com">
+          </div>
+          <div class="mb-3">
+            <label for="mensajeContacto" data-es="Mensaje" data-en="Message">Mensaje</label>
+            <textarea class="form-control" id="mensajeContacto" name="mensaje"
+              required maxlength="2000" placeholder="Escribe tu mensaje"
+              data-placeholder-es="Escribe tu mensaje" data-placeholder-en="Write your message"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">
+            <i class="bi bi-envelope me-1"></i>
+            <span data-es="Preparar mensaje" data-en="Prepare message">Preparar mensaje</span>
+          </button>
+          <p id="contactoEstado" class="form-message mt-3 mb-0" role="status" aria-live="polite"></p>
+          <p class="small mt-2 mb-0"
+            data-es="Este formulario preparará un correo en tu aplicación de correo. Para recibir mensajes directamente desde la web, habrá que conectarlo a un servicio de envío."
+            data-en="This form will prepare an email in your email app. To receive messages directly from the website, an email service must be connected.">
+            Este formulario preparará un correo en tu aplicación de correo. Para recibir mensajes directamente desde la web, habrá que conectarlo a un servicio de envío.
+          </p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- PIE -->
+  <footer>
+    <div class="container">
+      <a class="navbar-brand text-white" href="index.html">VOLT<span>IX</span></a>
+      <p class="mt-2" data-es="Tecnología, aprendizaje e innovación." data-en="Technology, learning and innovation.">
+        Tecnología, aprendizaje e innovación.
+      </p>
+      <div class="d-flex flex-wrap justify-content-center gap-3 my-3">
+        <a href="javascript.html">JavaScript</a>
+        <a href="jquery.html">jQuery</a>
+        <a href="jso gn.html">JSON</a>
+        <a href="hosting.html">Hosting</a>
+        <a href="dominios.html" data-es="Dominios" data-en="Domains">Dominios</a>
+        <a href="evaluacion.html" data-es="Evaluación" data-en="Quiz">Evaluación</a>
+      </div>
+      <small>© <span id="anioActual"></span> VOLTIX. <span data-es="Proyecto educativo." data-en="Educational project.">Proyecto educativo.</span></small>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
