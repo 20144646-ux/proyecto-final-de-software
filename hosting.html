@@ -1,89 +1,96 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEXUS X | Web Hosting</title>
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Hosting | VOLTIX</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
-<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+  <nav class="navbar navbar-expand-lg sticky-top">
     <div class="container">
-        <a class="navbar-brand fw-bold" href="index.html"><span class="logo">NX</span> NEXUS X</a>
-
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="menu">
-            <ul class="navbar-nav ms-auto align-items-lg-center">
-                <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
-                <li class="nav-item"><a class="nav-link" href="producto.html">Producto</a></li>
-                <li class="nav-item"><a class="nav-link" href="javascript.html">JavaScript</a></li>
-                <li class="nav-item"><a class="nav-link" href="jquery.html">jQuery</a></li>
-                <li class="nav-item"><a class="nav-link" href="json.html">JSON</a></li>
-                <li class="nav-item"><a class="nav-link active" href="hosting.html">Hosting</a></li>
-                <li class="nav-item"><a class="nav-link" href="dominios.html">Dominios</a></li>
-                <li class="nav-item"><a class="nav-link" href="evaluacion.html">Evaluación</a></li>
-                <li class="nav-item ms-lg-2"><button id="modoBtn" class="btn btn-outline-light btn-sm">🌙 Oscuro</button></li>
-            </ul>
-        </div>
+      <a class="navbar-brand fw-bold" href="index.html">VOLTIX<span>.</span></a>
+      <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="menu">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="dominios.html">Dominios</a></li>
+          <li class="nav-item"><a class="nav-link" href="evaluacion.html">Evaluación</a></li>
+          <li class="nav-item"><button class="btn btn-outline-dark ms-lg-2" id="modoBtn">🌙 Modo oscuro</button></li>
+        </ul>
+      </div>
     </div>
-</nav>
+  </nav>
 
-<section class="page-header">
+  <header class="page-header">
     <div class="container">
-        <span class="badge text-bg-primary">TECNOLOGÍA 04</span>
-        <h1>Web Hosting</h1>
-        <p>El espacio donde se almacenan los archivos de un sitio web.</p>
+      <h1>Web Hosting</h1>
+      <p>El servicio que permite publicar una página web en Internet.</p>
     </div>
-</section>
+  </header>
 
-<section class="section">
+  <main class="container content-section">
+    <section class="info-card">
+      <h2>¿Qué es el Web Hosting?</h2>
+      <p>El Web Hosting, también llamado alojamiento web, es un servicio que guarda los archivos de un sitio web en un servidor conectado a Internet. Gracias a esto, otras personas pueden visitar la página desde sus dispositivos.</p>
+    </section>
+
+    <section class="info-card">
+      <h2>¿Para qué sirve?</h2>
+      <ul>
+        <li>Almacenar archivos HTML, CSS y JavaScript.</li>
+        <li>Publicar páginas web para que otras personas puedan visitarlas.</li>
+        <li>Mantener disponibles los recursos de un sitio.</li>
+        <li>En algunos planes, utilizar bases de datos y correo electrónico.</li>
+      </ul>
+    </section>
+
+    <section class="info-card">
+      <h2>Tipos de alojamiento</h2>
+      <h3>Hosting compartido</h3>
+      <p>Varios sitios utilizan recursos de un mismo servidor. Suele ser una opción económica para páginas pequeñas.</p>
+
+      <h3>Servidor virtual privado (VPS)</h3>
+      <p>Ofrece recursos virtuales separados y más control sobre la configuración.</p>
+
+      <h3>Hosting en la nube</h3>
+      <p>Utiliza infraestructura de varios servidores para alojar aplicaciones y sitios web.</p>
+
+      <h3>Hosting dedicado</h3>
+      <p>Un servidor físico se destina a un solo cliente, normalmente con mayor control y costo.</p>
+    </section>
+
+    <section class="info-card">
+      <h2>Ejemplos de plataformas</h2>
+      <p>Estas son algunas plataformas que ofrecen servicios de alojamiento o publicación web:</p>
+      <ul>
+        <li><a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a>: publica sitios estáticos.</li>
+        <li><a href="https://vercel.com/" target="_blank" rel="noopener">Vercel</a>: facilita publicar sitios y aplicaciones web.</li>
+        <li><a href="https://www.netlify.com/" target="_blank" rel="noopener">Netlify</a>: permite desplegar proyectos web.</li>
+      </ul>
+    </section>
+
+    <section class="info-card">
+      <h2>¿Cómo se relaciona con VOLTIX?</h2>
+      <p>Actualmente, VOLTIX se ejecuta localmente en el equipo mediante VS Code y Live Server. Para que otras personas puedan visitarlo por Internet, habría que publicarlo en un servicio de hosting.</p>
+    </section>
+
+    <a href="dominios.html" class="btn btn-outline-dark">Siguiente tema: Dominios →</a>
+  </main>
+
+  <footer class="footer text-center">
     <div class="container">
-
-        <div class="row g-4">
-
-            <div class="col-lg-7 reveal">
-                <div class="content-box h-100">
-                    <h2><i class="bi bi-server"></i> ¿Qué es un hosting?</h2>
-
-                    <p>
-                        El Web Hosting es un servicio que permite almacenar
-                        los archivos de un sitio web en un servidor conectado
-                        a Internet.
-                    </p>
-
-                    <p>
-                        Gracias al hosting, las personas pueden visitar una
-                        página web desde diferentes dispositivos.
-                    </p>
-                </div>
-            </div>
-
-            <div class="col-lg-5 reveal">
-                <div class="info-card h-100">
-                    <i class="bi bi-cloud-arrow-up"></i>
-                    <h3>¿Qué puede almacenar?</h3>
-                    <p>HTML, CSS, JavaScript, imágenes, videos, bases de datos y otros archivos.</p>
-                </div>
-            </div>
-
-        </div>
-
+      <a class="navbar-brand fw-bold" href="index.html">VOLTIX<span>.</span></a>
+      <p class="mt-2 mb-0">Proyecto educativo de desarrollo web.</p>
     </div>
-</section>
+  </footer>
 
-<footer>
-    <p>© 2026 NEXUS X | Web Hosting</p>
-</footer>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="script.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
